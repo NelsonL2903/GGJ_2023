@@ -4,10 +4,10 @@ import { TextStyle } from '@pixi/text';
 import Game from './components/Game';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <Game />
+    <div >
+      <Game />
+    </div>
   );
 }
 
