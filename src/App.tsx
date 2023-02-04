@@ -1,10 +1,9 @@
-import "./index.css"
+import "./index.css";
+import Background from "./components/Background";
 
 function App() {
   return (
-    <div className="text-3xl font-bold underline">
-      Test
-    </div>
+    <Background />
   );
 }
 
