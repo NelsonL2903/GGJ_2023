@@ -16,6 +16,10 @@
     {"name":"Extensions","order":14,"path":"folders/Extensions.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"oSun","order":1,"path":"objects/oSun/oSun.yy",},
+    {"name":"Sun","order":1,"path":"sprites/Sun/Sun.yy",},
+    {"name":"Gradient","order":2,"path":"sprites/Gradient/Gradient.yy",},
+    {"name":"Background","order":2,"path":"objects/Background/Background.yy",},
     {"name":"Script1","order":15,"path":"scripts/Script1/Script1.yy",},
   ],
 }
