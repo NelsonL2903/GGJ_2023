@@ -1,9 +1,6 @@
 //variance of normal distribution for resource availability
 const functionWidth : number = 150;
 
-//slope of linear even probability function
-const eventCoefficient : number = 0.5;
-
 //resource status bin widths
 //one times this number gives the upper limit on low status of a resource and two times gives upper limit of mid status
 const waterInterval : number = 6;
@@ -23,26 +20,35 @@ const HPloss : number = 4;
 
 //environmental resources functions
 function envWaterFunc(turnNumber : number, modifier : number) : number {
-    return (3 * waterInterval) * (1 / (functionWidth * (2 * Math.PI) ** 0.5)) * Math.exp((-1) * turnNumber ** 2/(2 * functionWidth ** 2)) + minWater + modifier;
+    return Math.max((3 * waterInterval)  * Math.exp((-1) * turnNumber ** 2/(2 * functionWidth ** 2)) + minWater + modifier, 0);
   }
 
   function envMineralsFunc(turnNumber : number,  modifier : number) : number {
-    return (3 * mineralInterval) * (1 / (functionWidth * (2 * Math.PI) ** 0.5)) * Math.exp((-1) * turnNumber ** 2/(2 * functionWidth ** 2)) + minMineral + modifier;
+    return Math.max((3 * mineralInterval) * Math.exp((-1) * turnNumber ** 2/(2 * functionWidth ** 2)) + minMineral + modifier, 0);
   }
 
   function sunlightFunc(turnNumber : number) : boolean {
-    return turnNumber % 2 == 1; 
+    return (turnNumber % 2 == 1); 
   }
 
-  //tree resources functions
-  function treeWaterFunc(treeWater : number, envWater : number) : number {
-    return treeWater + envWater;
+  //tree resources absorption functions
+  function treeWaterAbsorptionFunc(treeWater : number, envWater : number) : number {
+    return Math.min(treeWater + envWater, 3 * waterInterval);
   }
 
-  function mineralWaterFunc(treeMinerals : number, envMinerals : number) : number {
-    return treeMinerals + envMinerals;
+  function treeMineralAbsorptionFunc(treeMinerals : number, envMinerals : number) : number {
+    return Math.min(treeMinerals + envMinerals, 3 * mineralInterval);
   }
-  
+
+  //tree resources consumption function
+  function treeWaterConsumptionFunc(treeWater : number) : number {
+    return Math.max(treeWater - waterUsagePerTurn, 0);
+  }
+
+  function treeMineralConsumptionFunc(treeMinerals : number) : number {
+    return Math.max(treeMinerals - mineralUsagePerTurn, 0);
+  }
+
   //updating HP
   function HPFunc(currentHP : number, treeNitrogen : number, treePhosphorus : number, treeWater : number, turnNumber : number, modifier : number) : number {
     //current hp + (negative effect of individual resources) + (positive effect of resources if sunlight) + modifier
@@ -55,4 +61,5 @@ function envWaterFunc(turnNumber : number, modifier : number) : number {
   
 
 
-  export { envWaterFunc, envMineralsFunc, sunlightFunc, treeWaterFunc, mineralWaterFunc, HPFunc };
+  export { envWaterFunc, envMineralsFunc, sunlightFunc, treeWaterAbsorptionFunc, treeMineralAbsorptionFunc, treeWaterConsumptionFunc,
+             treeMineralConsumptionFunc, HPFunc };
