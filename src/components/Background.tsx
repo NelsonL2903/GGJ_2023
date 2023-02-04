@@ -18,7 +18,7 @@ const Background = (props: any) => {
             <div className="">
                 <VolumeToggle />
             </div>
-            <div>
+            <div className='flex justify-center items-center'>
                 {props.children}
             </div>
             <div id="stars"></div>

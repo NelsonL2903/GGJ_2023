@@ -17,7 +17,6 @@ function App() {
     return (
       <Background>
         <Game/>
-        <StatBox />
       </Background>
     );
   }
