@@ -59,7 +59,20 @@ function envWaterFunc(turnNumber : number, modifier : number) : number {
     return Math.max(0 , Math.min(100, x));
   }
   
+  //absorb nutrients. stats array contains in order : water, nitrogen, phosphorus, HP env array contains the same for the environment
+  function absorbFunc(stats : number[], env : number[]) : void {
+    stats[0] = treeWaterAbsorptionFunc(stats[0], env[0]);
+    stats[1] = treeMineralAbsorptionFunc(stats[1], env[1]);
+    stats[2] = treeMineralAbsorptionFunc(stats[2], env[2]);
+  }
 
+  //use resources and update HP
+  function resourceAndHPFunc(stats : number[], turnNumber : number, modifier : number) : void {
+    HPFunc(stats[3], stats[1], stats[2], stats[0], turnNumber, modifier);
+    stats[0] = treeWaterConsumptionFunc(stats[0]);
+    stats[1] = treeMineralConsumptionFunc(stats[1]);
+    stats[2] = treeMineralConsumptionFunc(stats[2]);
+  }
 
   export { envWaterFunc, envMineralsFunc, sunlightFunc, treeWaterAbsorptionFunc, treeMineralAbsorptionFunc, treeWaterConsumptionFunc,
-             treeMineralConsumptionFunc, HPFunc };
+             treeMineralConsumptionFunc, HPFunc, absorbFunc, resourceAndHPFunc };
