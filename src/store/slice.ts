@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 interface Game {
+    gameState: string,
     life: number,
     tWater: number,
     tN: number,
@@ -14,6 +15,7 @@ interface Game {
 }
 
 const initialState: Game = {
+    gameState: 'home',
     life: 100,
     tWater: 0,
     tN: 0,
@@ -30,6 +32,9 @@ const gameSlice = createSlice({
     name: 'game',
     initialState,
     reducers: {
+        setGameState(state, action) {
+            state.gameState = action.payload
+        },
         setLife(state, action) {
             state.life = action.payload
         },
@@ -66,6 +71,6 @@ const gameSlice = createSlice({
     }
 })
 
-export const { setLife, setTWater, setTN, setTP, setAWater, setAN, setAP, 
+export const { setGameState, setLife, setTWater, setTN, setTP, setAWater, setAN, setAP, 
     incrementTurnNumber, toggleDayCycle, setEvent, resetGame } = gameSlice.actions
 export default gameSlice.reducer

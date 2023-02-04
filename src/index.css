@@ -1,9 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
-p {
+p, h1{
   font-family: "VT323", serif;
   color: #000000;
   text-align: center;
