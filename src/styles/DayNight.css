@@ -3,7 +3,7 @@
   height: 100vh;
   background-color: #3498db;
   overflow: hidden;
-  animation: colors 10s infinite linear;
+  animation: colors 100s infinite linear;
 }
 
 #asters {
@@ -11,7 +11,7 @@
   margin: auto;
   width: 100px;
   height: 200%;
-  animation: rotate 10s infinite linear;
+  animation: rotate 100s infinite linear;
 }
 
 #stars {
@@ -29,7 +29,7 @@
   height: 2px;
   border-radius: 50%;
   background-color: white;
-  animation: starscolors 10s infinite linear;
+  animation: starscolors 100s infinite linear;
 }
 
 .sun {

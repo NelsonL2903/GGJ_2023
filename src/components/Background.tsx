@@ -2,9 +2,7 @@ import { useEffect, useState } from 'react';
 import "../styles/DayNight.css";
 
 const Background = (props: any) => {
-    useEffect(() => {
-        let res = [];
-        
+    useEffect(() => {        
         for (var i = 0; i < 200; i++) {
             const star = document.createElement('div');
             star.style.top = (Math.random() * window.innerHeight) + 'px';
