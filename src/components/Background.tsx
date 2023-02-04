@@ -1,9 +1,17 @@
-import { Sprite } from "@pixi/react";
+import { useEffect } from "react";
+import { Container, Sprite, useApp } from "@pixi/react";
+import Hill from "../assets/hill.png";
+import sprites from "../pixis/sprites";
 
 const Background = () => {
-    return (
-        <Sprite image="" x={0} y={0} anchor={{ x: 0, y: 0 }} scale={1} />
-    );
+    const app = useApp();
+    app.stage.addChild(sprites.background.graphics);
+    app.stage.addChild(sprites.hill);
+    useEffect(() => {
+        sprites.background.animate();
+    }, []);
+
+    return null 
 };
 
 export default Background;

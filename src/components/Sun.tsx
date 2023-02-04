@@ -7,8 +7,8 @@ import { Sprite, useTick } from "@pixi/react";
 
 
 const Sun = () => {
-    const [coords, setCoords] = useState({ x: 0, y: 0 });
-    const [anchor, setAnchor] = useState({ x: 100, y: 100 });
+    const [coords, setCoords] = useState({ x: 0, y: 200 });
+    const [anchor, setAnchor] = useState({ x: 450, y: 800 });
 
     const angle = 1 * (Math.PI / 180);
     useTick(() => {
