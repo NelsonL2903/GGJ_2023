@@ -2,7 +2,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store/store';
 import * as slice from '../store/slice';
-import Stats from './stats/Stats';
+import Stats from '../components/stats/Stats';
 
 const Game = () => {
     const state = useSelector((state: RootState) => state.game);
