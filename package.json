@@ -9,9 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@pixi/react": "^7.0.0",
+    "@material-ui/core": "^4.12.4",
     "@reduxjs/toolkit": "^1.9.2",
-    "pixi.js": "^7.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5"
