@@ -4,10 +4,10 @@ const StatIcons = () => {
   // health, water, nitrgoen, phosophorus
   return (
     <div className="flex absolute right-8 bottom-8 w-96 justify-between">
-      <StatBox value={100} max={100} x={1300} colour="#ff0000" type="health"></StatBox>
-      <StatBox value={100} max={100} x={1300} colour="#ff0000" type="water"></StatBox>
-      <StatBox value={100} max={100} x={1300} colour="#ff0000" type="nitrgoen"></StatBox>
-      <StatBox value={100} max={100} x={1300} colour="#ff0000" type="phosophorus"></StatBox>
+      <StatBox height={"16"} colour="bg-red-500" type="health"></StatBox>
+      <StatBox height={"24"} colour="bg-blue-500" type="water"></StatBox>
+      <StatBox height={"12"} colour="bg-white" type="nitrgoen"></StatBox>
+      <StatBox height={"16"} colour="bg-green-500" type="phosophorus"></StatBox>
     </div>
 
 

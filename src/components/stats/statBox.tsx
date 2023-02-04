@@ -1,19 +1,19 @@
 import { Typography } from "@material-ui/core";
 import StatBar from "../../assets/StatBar.png";
 interface Props {
-  value: number;
-  max: number;
-  x: number;
+  height: string;
   colour: string;
   type: string;
 }
 
 const StatBox = (props: Props) => {
-  let percent: number = (props.value / props.max) * 200;
 
   return (
     <div className="items-center justify-center flex flex-col">
-      <img src={StatBar} className="w-6"></img>
+      <div className="relative">
+        <img src="StatBar2.png"></img>
+        <div className={`ml-2 w-2 absolute bottom-0 ${props.colour} h-${props.height}`} />
+      </div>
       <p className="text-white">
         {props.type}
       </p>
@@ -21,5 +21,6 @@ const StatBox = (props: Props) => {
 
   );
 };
+
 
 export default StatBox;
