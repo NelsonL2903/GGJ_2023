@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Stage, Container, Sprite, Text, } from '@pixi/react';
-import { TextStyle } from '@pixi/text';
-import Game from './components/Game';
+import { Stage } from '@pixi/react';
+import Background from './components/Background';
+import Sun from './components/Sun';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <Game />
+    <Stage>
+      <Background />
+      <Sun />
+    </Stage>
   );
 }
 
