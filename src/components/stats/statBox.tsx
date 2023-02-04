@@ -7,19 +7,12 @@ interface Props {
   colour: string;
 }
 
-const StatBox = (props: Props) => {
+const StatBox = (props: any) => {
   let percent: number = (props.value / props.max) * 200;
 
   return (
-    <div
-      className="absolute bottom-0 right-0"
-      style={{
-        width: 20,
-        height: percent,
-        backgroundColor: props.colour,
-      }}
-    >
-      HP
+    <div className="absolute right-0 bottom-0">
+      STAT BOX
     </div>
   );
 };

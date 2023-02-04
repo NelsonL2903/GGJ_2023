@@ -1,6 +1,6 @@
 import "../index.css";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import VolumeToggle from "../components/VolumeToggle";
+import VolumeToggle from "../components/LeftMenu";
 import { useDispatch } from "react-redux";
 import { setGameState } from "../store/slice";
 
@@ -8,8 +8,8 @@ const HomeScreen = () => {
     const dispatch = useDispatch()
     return (
 
-        <div className="h-[100vh] flex flex-col justify-center items-center relative">
-            <div className="absolute right-4 top-4">
+        <div className="h-[100vh] flex flex-col justify-center items-center relative bg-blue-400">
+            <div className="absolute flex right-4 top-4">
                 <VolumeToggle />
             </div>
             <h1 className="font-bold text-9xl text-orange-900">Old Oak</h1>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import "../styles/DayNight.css";
+import VolumeToggle from "./LeftMenu";
 
 const Background = (props: any) => {
     useEffect(() => {        
@@ -14,6 +15,9 @@ const Background = (props: any) => {
 
     return (
         <div id='container'>
+            <div className="">
+                <VolumeToggle />
+            </div>
             <div>
                 {props.children}
             </div>

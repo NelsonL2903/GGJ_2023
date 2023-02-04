@@ -1,17 +1,18 @@
 
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from '../store/store'
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store/store';
 import * as slice from '../store/slice';
+import StatBox from './stats/statBox';
 
 const Game = () => {
-    const state = useSelector((state: RootState) => state.game)
-    const dispatch = useDispatch()
-    
-    return (
-        <div>
-            <h1>Game</h1>
-        </div>
-    )
-}
+    const state = useSelector((state: RootState) => state.game);
+    const dispatch = useDispatch();
 
-export default Game
+    return (
+        <div className='relative'>
+
+        </div>
+    );
+};
+
+export default Game;

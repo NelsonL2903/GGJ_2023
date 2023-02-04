@@ -4,6 +4,7 @@ import Homescreen from "./pages/Homescreen";
 import { useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import Game from "./components/treeGame";
+import StatBox from "./components/stats/statBox";
 
 function App() {
   const gameState = useSelector((state: RootState) => state.game.gameState)
@@ -16,6 +17,7 @@ function App() {
     return (
       <Background>
         <Game/>
+        <StatBox />
       </Background>
     );
   }
