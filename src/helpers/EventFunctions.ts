@@ -34,7 +34,7 @@ function eventNumberFunc(turnNumber : number) : number {
 
 
 //event object
-interface event {
+export interface event {
     name : string;
     displayText : string;
     HPDamage : number;
