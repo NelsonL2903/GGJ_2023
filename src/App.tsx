@@ -1,17 +1,19 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import {app} from './pixi/main';
-
+import { Stage, Container, Sprite, Text } from '@pixi/react';
 
 function App() {
   const [count, setCount] = useState(0);
-  useEffect(() => {
-    app.start();
-  });
-  return (
-    <div className="App">
 
-    </div>
+  return (
+    <Stage>
+      <Sprite
+        image="https://pixijs.io/pixi-react/img/bunny.png"
+        x={400}
+        y={270}
+        anchor={{ x: 0.5, y: 0.5 }}
+      />
+    </Stage>
   );
 }
 

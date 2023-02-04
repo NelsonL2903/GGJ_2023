@@ -1,8 +1,8 @@
-import PIXI from 'pixi.js';
+import * as PIXI from 'pixi.js';
 
 const Application = PIXI.Application;
 
-export const app = new Application({
+const app = new Application({
     width: 256,
     height: 256,
     antialias: true,
@@ -10,3 +10,4 @@ export const app = new Application({
 });
 
 
+export default app;
