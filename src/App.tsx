@@ -3,7 +3,9 @@ import Background from "./components/Background";
 
 function App() {
   return (
-    <Background />
+    <Background >
+      Test
+    </Background>
   );
 }
 
