@@ -1,10 +1,11 @@
 import "./index.css";
 import Background from "./components/Background";
+import Homescreen from "./pages/Homescreen";
 
 function App() {
-  return (
-    
-    <Background ></Background>
+  return (  
+    <Homescreen />
+    // <Background ></Background>
   );
 }
 
