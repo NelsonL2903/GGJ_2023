@@ -18,20 +18,19 @@ import { useState } from 'react';
 
 
 const Tree = () => {
-    const life = useSelector((state: RootState) => state.game.life);
+    const healthNum = useSelector((state: RootState) => state.game.season);
+    const seasonNum = useSelector((state: RootState) => state.game.season); 
 
-    const [health, setHealth] = useState([{type: "Alive", source: LiveTree},
-                                            {type: "Sick", source: SickTree},
-                                            {type: "Dead", source: DeadTree}]);
 
-    const [season, setSeason] = useState([ {season: "Spring", leafSource: SpringLeaves, groundSource: SpringGround},
-                                            {season: "Summer", leafSource: SummerLeaves, groundSource: null},
-                                            {season: "Fall", leafSource: FallLeaves, groundSource: FallGround},
-                                            {season: "Winter", leafSource: WinterLeaves, groundSource: WinterGround},      
-                                            {season: "Dead", leafSource: null, groundSource: null}]);
+    const [health, setHealth] = useState([{ type: "Alive", source: LiveTree },
+    { type: "Sick", source: SickTree },
+    { type: "Dead", source: DeadTree }]);
 
-    var seasonNum = 1;
-    var healthNum = 0;
+    const [season, setSeason] = useState([{ season: "Spring", leafSource: SpringLeaves, groundSource: SpringGround },
+    { season: "Summer", leafSource: SummerLeaves, groundSource: null },
+    { season: "Fall", leafSource: FallLeaves, groundSource: FallGround },
+    { season: "Winter", leafSource: WinterLeaves, groundSource: WinterGround },
+    { season: "Dead", leafSource: null, groundSource: null }]);
 
     return (
         <div>
@@ -41,9 +40,9 @@ const Tree = () => {
             {season[seasonNum].groundSource &&
                 <img src={season[seasonNum].groundSource} className="h-[100vh] w-[100vw] z-4 absolute bottom-[0] left-[0vw]"></img>
             }
-            
+
             <img src={health[healthNum].source} className="h-[100vh] w-[100vw] z-4 absolute bottom-[0] left-[-2vw]"></img>
-            
+
         </div>
 
     );
