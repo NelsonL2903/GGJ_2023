@@ -1,17 +1,17 @@
 .card{
     object-fit: cover;
-    object-position: -52% -3rem;
-    transform:scale(3.0);
-    -ms-transform:scale(3.0); /* IE 9 */
-    -moz-transform:scale(3.0); /* Firefox */
-    -webkit-transform:scale(3.0); /* Safari and Chrome */
-    -o-transform:scale(3.0); 
+    object-position: center;
+    transform:scale(0.75);
+    -ms-transform:scale(0.75); /* IE 9 */
+    -moz-transform:scale(0.75); /* Firefox */
+    -webkit-transform:scale(0.75); /* Safari and Chrome */
+    -o-transform:scale(0.75); 
 }
 
 .card:hover{
-    transform:scale(3.1);
-    -ms-transform:scale(3.1); /* IE 9 */
-    -moz-transform:scale(3.1); /* Firefox */
-    -webkit-transform:scale(3.1); /* Safari and Chrome */
-    -o-transform:scale(3.1); 
+    transform:scale(0.85);
+    -ms-transform:scale(0.85); /* IE 9 */
+    -moz-transform:scale(0.85); /* Firefox */
+    -webkit-transform:scale(0.85); /* Safari and Chrome */
+    -o-transform:scale(0.85); 
 }

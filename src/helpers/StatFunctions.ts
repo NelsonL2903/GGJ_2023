@@ -1,3 +1,5 @@
+import { Game, setAN, setAP, setAWater, setLife, setTN, setTP, setTWater } from "../store/slice";
+
 //variance of normal distribution for resource availability
 const functionWidth: number = 150;
 
@@ -20,15 +22,25 @@ const HPloss: number = 4;
 
 //environmental resources functions
 function envWaterFunc(turnNumber: number, modifier: number): number {
-  return Math.max((3 * waterInterval) * Math.exp((-1) * turnNumber ** 2 / (2 * functionWidth ** 2)) + minWater + modifier, 0);
+  return Math.max(
+    3 *
+      waterInterval *
+      Math.exp((-1 * turnNumber ** 2) / (2 * functionWidth ** 2)) +
+      minWater +
+      modifier,
+    0
+  );
 }
 
 function envMineralsFunc(turnNumber: number, modifier: number): number {
-  return Math.max((3 * mineralInterval) * Math.exp((-1) * turnNumber ** 2 / (2 * functionWidth ** 2)) + minMineral + modifier, 0);
-}
-
-function sunlightFunc(turnNumber: number): boolean {
-  return (turnNumber % 2 == 1);
+  return Math.max(
+    3 *
+      mineralInterval *
+      Math.exp((-1 * turnNumber ** 2) / (2 * functionWidth ** 2)) +
+      minMineral +
+      modifier,
+    0
+  );
 }
 
 //tree resources absorption functions
@@ -36,7 +48,10 @@ function treeWaterAbsorptionFunc(treeWater: number, envWater: number): number {
   return Math.min(treeWater + envWater, 3 * waterInterval);
 }
 
-function treeMineralAbsorptionFunc(treeMinerals: number, envMinerals: number): number {
+function treeMineralAbsorptionFunc(
+  treeMinerals: number,
+  envMinerals: number
+): number {
   return Math.min(treeMinerals + envMinerals, 3 * mineralInterval);
 }
 
@@ -45,38 +60,52 @@ function treeWaterConsumptionFunc(treeWater: number, modifier: number): number {
   return Math.max(treeWater - waterUsagePerTurn - modifier, 0);
 }
 
-function treeMineralConsumptionFunc(treeMinerals: number, modifier: number): number {
+function treeMineralConsumptionFunc(
+  treeMinerals: number,
+  modifier: number
+): number {
   return Math.max(treeMinerals - mineralUsagePerTurn - modifier, 0);
 }
 
-//updating HP
-function HPFunc(currentHP: number, treeNitrogen: number, treePhosphorus: number, treeWater: number, turnNumber: number, modifier: number): number {
-  //current hp + (negative effect of individual resources) + (positive effect of resources if sunlight) + modifier
-  let x: number = currentHP
-    - (((treeNitrogen < mineralInterval) ? 1 : 0) + ((treeNitrogen < mineralInterval) ? 1 : 0) + ((treeWater < waterInterval) ? 1 : 0)) * HPloss
-    + (((treeNitrogen > mineralInterval) ? 1 : 0) * ((treeNitrogen > mineralInterval) ? 1 : 0) * ((treeWater > waterInterval) ? 1 : 0)) * HPgain
-    - modifier;
-  return Math.max(0, Math.min(100, x));
+const HPFunc = (dispatch: (payload: any) => void, state: Game) => {
+  let multiplier = 0;
+  if(state.tN < mineralInterval) multiplier++;
+  if(state.tP < mineralInterval) multiplier++;
+  if(state.tWater < waterInterval) multiplier++;
+  const hpLoss = multiplier * HPloss;
+
+  multiplier = 0;
+  if(state.tN > mineralInterval * 2 && state.tP > mineralInterval * 2 && state.tWater > waterInterval * 2) multiplier++;
+  const hpGain = multiplier * HPgain * (state.turnNumber % 2);
+
+  dispatch(setLife(state.life - hpLoss + hpGain))
+}
+
+const updateEnv = (dispatch: (payload: any) => void, state: Game): void => {
+  dispatch(setAWater(envWaterFunc(state.turnNumber, 1)));
+  dispatch(setAN(envMineralsFunc(state.turnNumber, 1)));
+  dispatch(setAP(envMineralsFunc(state.turnNumber, 1)));
 }
 
 //absorb nutrients. stats array contains in order : water, nitrogen, phosphorus, HP env array contains the same for the environment
-function absorbFunc(stats: number[], env: number[]): void {
-  stats[0] = treeWaterAbsorptionFunc(stats[0], env[0]);
-  stats[1] = treeMineralAbsorptionFunc(stats[1], env[1]);
-  stats[2] = treeMineralAbsorptionFunc(stats[2], env[2]);
+const absorbFunc = (dispatch: (payload: any) => void, state: Game): void => {
+  dispatch(setTWater(treeWaterAbsorptionFunc(state.tWater, state.aWater)));
+  dispatch(setTN(treeMineralAbsorptionFunc(state.tN, state.aN)));
+  dispatch(setTP(treeMineralAbsorptionFunc(state.tP, state.aP)));
 }
 
 //use resources and update HP
-function resourceAndHPFunc(stats: number[], turnNumber: number, HPmodifier: number, waterConsumptionModifier: number, nitrogenConsumptionModifier: number, phosphorusConsumptionModifier: number): number[] {
-  HPFunc(stats[3], stats[1], stats[2], stats[0], turnNumber, HPmodifier);
-  stats[0] = treeWaterConsumptionFunc(stats[0], waterConsumptionModifier);
-  stats[1] = treeMineralConsumptionFunc(stats[1], nitrogenConsumptionModifier);
-  stats[2] = treeMineralConsumptionFunc(stats[2], phosphorusConsumptionModifier);
-  return stats;
-
+const resourceAndHPFunc = (
+  waterConsumptionModifier: number,
+  nitrogenConsumptionModifier: number,
+  phosphorusConsumptionModifier: number,
+  dispatch: (payload: any) => void, 
+  state: Game
+): void => {
+  HPFunc(dispatch, state);
+  dispatch(setTWater(treeWaterConsumptionFunc(state.tWater, waterConsumptionModifier)));
+  dispatch(setTN(treeMineralConsumptionFunc(state.tN, nitrogenConsumptionModifier)));
+  dispatch(setTP(treeMineralConsumptionFunc(state.tP, phosphorusConsumptionModifier)));
 }
 
-export {
-  envWaterFunc, envMineralsFunc, sunlightFunc, treeWaterAbsorptionFunc, treeMineralAbsorptionFunc, treeWaterConsumptionFunc,
-  treeMineralConsumptionFunc, HPFunc, absorbFunc, resourceAndHPFunc
-};
+export { updateEnv, absorbFunc, resourceAndHPFunc };
