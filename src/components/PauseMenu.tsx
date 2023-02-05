@@ -32,40 +32,44 @@ const PauseMenu = (props: any) => {
   };
 
   return (
-    <div>
-      <PauseIcon
-        onClick={handleOpen}
-        sx={{ fontSize: 40, color: brown[500] }}
-      />
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style} style={{ outline: "none" }}>
-          <div
-            onClick={handleClose}
-            className="flex justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-pointer mb-2"
+    <div className="absolute flex right-16 top-4 z-20">
+      <div>
+        <div>
+          <PauseIcon
+            onClick={handleOpen}
+            sx={{ fontSize: 40, color: brown[500] }}
+          />
+          <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
           >
-            <p className="text-4xl text-green-600">Resume</p>
-            <PlayArrowIcon className="text-4xl" />
-          </div>
-          <div
-            onClick={toHome}
-            className="flex justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-pointer mb-2"
-          >
-            <p className="text-4xl text-green-600">Exit</p>
-            <CloseIcon className="text-4xl" />
-          </div>
-          <div className="flex flex-col justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-default">
-            <p className="text-green-600 text-2xl">Created by</p>
-            <p className="text-green-600 text-2xl">Ryan Eggens, Nelson Loop,</p>
-            <p className="text-green-600 text-2xl">Hayden Parsons,</p>
-            <p className="text-green-600 text-2xl">Alexander Tsarapkine, Benjamin Zhao</p>
-          </div>
-        </Box>
-      </Modal>
+            <Box sx={style} style={{ outline: "none" }}>
+              <div
+                onClick={handleClose}
+                className="flex justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-pointer mb-2"
+              >
+                <p className="text-4xl text-green-600">Resume</p>
+                <PlayArrowIcon className="text-4xl" />
+              </div>
+              <div
+                onClick={toHome}
+                className="flex justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-pointer mb-2"
+              >
+                <p className="text-4xl text-green-600">Exit</p>
+                <CloseIcon className="text-4xl" />
+              </div>
+              <div className="flex flex-col justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-default">
+                <p className="text-green-600 text-2xl">Created by</p>
+                <p className="text-green-600 text-2xl">Ryan Eggens, Nelson Loop,</p>
+                <p className="text-green-600 text-2xl">Hayden Parsons,</p>
+                <p className="text-green-600 text-2xl">Alexander Tsarapkine, Benjamin Zhao</p>
+              </div>
+            </Box>
+          </Modal>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,3 @@
-import { Typography } from "@material-ui/core";
-import StatBar from "../../assets/StatBar.png";
 import "./stats.css";
 import { useEffect } from "react";
 interface Props {
@@ -9,7 +7,7 @@ interface Props {
 }
 
 const StatBox = (props: Props) => {
-  const { height, colour, type } = props;
+  const { height, type } = props;
 
   useEffect(() => {
     const element = document.getElementById(type);

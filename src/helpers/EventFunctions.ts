@@ -1,6 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
-import { setEventsList, spliceEventsList, setEventsListDurations, spliceEventsListDurations, setHPDamage, setNmod, setPmod, setWmod, setNCmod, setPCmod, setWCmod, decrementDuration, pushEventsList, pushEventsListDurations } from "../store/slice";
-import { RootState } from "../store/store";
+import { spliceEventsList, spliceEventsListDurations, setHPDamage, setNmod, setPmod, setWmod, setNCmod, setPCmod, setWCmod, decrementDuration, pushEventsList, pushEventsListDurations, Game } from "../store/slice";
 
 //event object
 export interface event {
@@ -114,118 +112,78 @@ export const events: Array<event> = [{
 }];
 
 //does all of events
-function eventFullFunc(){
+function eventFullFunc(dispatch: (payload: any) => void, state: Game){     
+    //slope of linear even probability function
+    const eventCoefficient : number = 0.005;
+    //maximum probability of an event on a given day
+    const maxEventProbability : number = 0.65;
 
-
-const turnNumber = useSelector((state: RootState) => state.game.turnNumber);
-const eventsList = useSelector((state: RootState) => state.game.eventsList);
-const eventsListDurations = useSelector((state: RootState) => state.game.eventsListDurations);
-const HPDamage = useSelector((state: RootState) => state.game.HPDamage);
-const Nmod = useSelector((state: RootState) => state.game.Nmod);
-const Pmod = useSelector((state: RootState) => state.game.Pmod);
-const Wmod = useSelector((state: RootState) => state.game.Wmod);
-const NCmod = useSelector((state: RootState) => state.game.NCmod);
-const PCmod = useSelector((state: RootState) => state.game.PCmod);
-const WCmod = useSelector((state: RootState) => state.game.WCmod);
-const dispatch = useDispatch();
-
-
-//slope of linear even probability function
-const eventCoefficient : number = 0.005;
-//maximum probability of an event on a given day
-const maxEventProbability : number = 0.65;
-
-//number of types of events per season
-const eventsPerSeason : number = 2;
-//indices of seasons
-const spring: number = 1;
-const summer: number = 2;
-const winter: number = 3;
-const fall: number = 4;
-
-//returns probability of an event on a given day
-function eventProbabilityFunc() : number {
-    return Math.min(eventCoefficient * turnNumber, maxEventProbability);
-  }
-
-//returns whehter a non - trivial event occurs on that turn
-function eventFunc() : boolean {
-    return (Math.random() < eventProbabilityFunc());
-}
-
-//determines which season it is
-function seasonFunc() : number{
-    return Math.round(turnNumber / 10) + 1;
-}
-
-//determines which event will occur
-function eventNumberFunc() : number {
-    return (2 * ((eventFunc())? 0 : 1) * seasonFunc()) - ((eventFunc())? 0 : 1) * ((Math.random() < 0.5)? 0 : 1);
-}
-
-
-
-
-//update the events list
-function updateEventsListFunc() : void {
-    
-    for (let num : number = 1; num<=eventsListDurations.length; num++)  {  
-        if (eventsListDurations[num] <= 1){
-            dispatch(spliceEventsList(num));
-            dispatch(spliceEventsListDurations(num));
-        } 
-        dispatch(decrementDuration());
-    const index = eventNumberFunc();
-    let removalList : number[] = [];
-    if(Math.floor(turnNumber/10) % 4 == 0){
-        removalList.push(7);
-        removalList.push(8);
-    };
-    if(index == 5){
-        removalList.push(3);
-        removalList.push(4);
+    //determines which event will occur
+    function eventNumberFunc() : number {
+        const eventNum = Math.random() < Math.min(eventCoefficient * state.turnNumber, maxEventProbability)
+        return (2 * (eventNum? 1 : 0) * (state.season + 1)) - (eventNum? 1 : 0) * ((Math.random() < 0.5)? 1 : 0);
     }
-    if (index == 4) removalList.push(5);
-    for(let num : number = 1; num<=eventsList.length; num++){
-        for(let num2 : number = 1; num2 <= removalList.length; num2++){
-            if(eventsList[num] == removalList[num2]){
+
+    //update the events list
+    function updateEventsListFunc() : void {
+        for (let num : number = 1; num <= state.eventsListDurations.length; num++)  {  
+            if (state.eventsListDurations[num] <= 1){
                 dispatch(spliceEventsList(num));
                 dispatch(spliceEventsListDurations(num));
+            } 
+        }
+        dispatch(decrementDuration());
+        const index = eventNumberFunc();
+        let removalList : number[] = [];
+        if(Math.floor(state.turnNumber / 10) % 4 == 0){
+            removalList.push(7);
+            removalList.push(8);
+        };
+        if(index == 5){
+            removalList.push(3);
+            removalList.push(4);
+        }
+        if (index == 4) removalList.push(5);
+        for(let num : number = 1; num <= state.eventsList.length; num++){
+            for(let num2 : number = 1; num2 <= removalList.length; num2++){
+                if(state.eventsList[num] == removalList[num2]){
+                    dispatch(spliceEventsList(num));
+                    dispatch(spliceEventsListDurations(num));
+                }
             }
         }
+        dispatch(pushEventsList(index));
+        console.log(events[index], events[index]?.duration)
+        dispatch(pushEventsListDurations(events[index]?.duration));
     }
-    dispatch(pushEventsList(index));
-    dispatch(pushEventsListDurations(events[index].duration));
-}
 
-//update total events
-function totalEventsUpdateFunc() : void {
-    dispatch(setHPDamage(0));
-    dispatch(setNmod(0));
-    dispatch(setPmod(0));
-    dispatch(setWmod(0));
-    dispatch(setNCmod(0));
-    dispatch(setPCmod(0));
-    dispatch(setWCmod(0));
-    for (let num : number = 1; num<=eventsList.length; num++)  {  
-        dispatch(setHPDamage(HPDamage + events[eventsList[num]].HPDamage));
-        dispatch(setNmod(Nmod + events[eventsList[num]].nitrogenModifier));
-        dispatch(setWmod(Wmod + events[eventsList[num]].waterModifier));
-        dispatch(setPmod(Pmod + events[eventsList[num]].phosphorusModifier));
-        dispatch(setNCmod(NCmod + events[eventsList[num]].nitrogenConsumptionModifier));
-        dispatch(setWCmod(WCmod + events[eventsList[num]].waterConsumptionModifier));
-        dispatch(setPCmod(PCmod + events[eventsList[num]].phosphorusConsumptionModifier));
+    //update total events
+    function totalEventsUpdateFunc() : void {
+        dispatch(setHPDamage(0));
+        dispatch(setNmod(0));
+        dispatch(setPmod(0));
+        dispatch(setWmod(0));
+        dispatch(setNCmod(0));
+        dispatch(setPCmod(0));
+        dispatch(setWCmod(0));
+        for (let num : number = 1; num<= state.eventsList.length; num++)  {  
+            dispatch(setHPDamage(state.HPDamage + events[state.eventsList[num]].HPDamage));
+            dispatch(setNmod(state.Nmod + events[state.eventsList[num]].nitrogenModifier));
+            dispatch(setWmod(state.Wmod + events[state.eventsList[num]].waterModifier));
+            dispatch(setPmod(state.Pmod + events[state.eventsList[num]].phosphorusModifier));
+            dispatch(setNCmod(state.NCmod + events[state.eventsList[num]].nitrogenConsumptionModifier));
+            dispatch(setWCmod(state.WCmod + events[state.eventsList[num]].waterConsumptionModifier));
+            dispatch(setPCmod(state.PCmod + events[state.eventsList[num]].phosphorusConsumptionModifier));
         } 
-}
+    }
 
-    //@ts-ignore
+        //@ts-ignore
     function eventFullInnerFunc() : void{
         updateEventsListFunc();
         totalEventsUpdateFunc();
     }
 
     eventFullInnerFunc();
-}
 }
 
 export { eventFullFunc };
