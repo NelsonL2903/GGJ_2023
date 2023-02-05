@@ -2,7 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 interface Game {
     gameState: string,
-    // 0 healthy, 1 sick, 2, dead
     life: number,
     tWater: number,
     tN: number,

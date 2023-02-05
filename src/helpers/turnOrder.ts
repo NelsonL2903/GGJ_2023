@@ -112,6 +112,9 @@ let env: number[];
 let hand: number[];
 
 export function takeTurn(turnNumber: number, dispatch: any) {
+
+    // Determine random event 
+    
     //event
     eventFullFunc(turnNumber, eventsList, eventsListDurations, totalEvents, events);
     //absorption
@@ -124,6 +127,5 @@ export function takeTurn(turnNumber: number, dispatch: any) {
     // stats = resourceAndHPFunc(stats, turnNumber, totalEvents.HPDamage, totalEvents.waterConsumptionModifier, totalEvents.nitrogenConsumptionModifier, totalEvents.phosphorusConsumptionModifier);
 
     //update environment
-    dispatch();
 }
 
