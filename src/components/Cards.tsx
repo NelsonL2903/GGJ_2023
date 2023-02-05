@@ -9,8 +9,7 @@ const Cards = () => {
 
     return (
         <div className="absolute bottom-16 left-4 w-full">
-            <div className='flex text-white relative w-[40vw] h-52 z-10'>
-
+            <div className='flex text-white relative w-[36vw] h-52 z-10'>
                 {cards.map((card, index) => (
                     <Card key={index} index={index} cardNumber={card} />
                 ))}

@@ -13,17 +13,20 @@ function App() {
   return (
     <div className="flex">
 
-      <div className="flex-grow-0 w-[800px] relative">
+      <div className="bg-black w-1/4 height-[100vh]"></div>
+      <div className="flex-grow-0 w-[900px] relative">
         {gameState === "home" && <Homescreen />}
         {gameState === "start" &&
           <Background>
             <Game />
           </Background>
         }
+        
         <div className="absolute right-4 top-4 z-1">
           <VolumeToggle />
         </div>
       </div>
+      <div className="bg-black w-1/4 height-[100vh]"></div>
     </div>
   );
 }

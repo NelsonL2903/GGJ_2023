@@ -17,8 +17,6 @@ interface Props {
 const Card = (props: Props) => {
     const [image, setImage] = useState<any>(null);
 
-    
-
     const CardImages = {
         "0": { image: CompostCard, name: "Full N20" },
         "1": { image: CompostCard, name: "Full N20" },
@@ -42,7 +40,7 @@ const Card = (props: Props) => {
 
 
     return (
-        <div className={`mx-2 overflow-hidden relative`}>
+        <div className={` overflow-hidden relative`}>
             {/* @ts-ignore */}
             <img src={CardImages[props.cardNumber.toString()].image} className="h-48 card">
             </img>

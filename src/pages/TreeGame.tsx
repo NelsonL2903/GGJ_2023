@@ -9,6 +9,7 @@ import Cards from '../components/Cards';
 import DayCounter from '../components/DayCounter';
 import { useEffect } from 'react';
 import { takeTurn } from "../helpers/turnOrder";
+import  EndGameButton  from "../components/EndGameButton";
 
 const Game = () => {
     const game = useSelector((state: RootState) => state.game);
@@ -27,6 +28,7 @@ const Game = () => {
     return (
         <div className='flex-1 flex flex-col justify-center'>
             <DayCounter />
+            <EndGameButton />
             <Stats />
             <Ground />
             <Tree />
