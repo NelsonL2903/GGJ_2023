@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className="flex">
-      <div className="w-1/4 h-[100vh] bg-black"></div>
+
       <div className="flex-grow-0 w-[800px] relative">
         {gameState === "home" && <Homescreen />}
         {gameState === "start" &&
@@ -24,7 +24,6 @@ function App() {
           <VolumeToggle />
         </div>
       </div>
-      <div className="h-[100vh] w-1/4 bg-black"></div>
     </div>
   );
 }
