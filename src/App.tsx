@@ -4,7 +4,6 @@ import Homescreen from "./pages/Homescreen";
 import Game from "./pages/TreeGame";
 import { useSelector } from "react-redux";
 import { RootState } from "./store/store";
-import StatBox from "./components/stats/statBox";
 import VolumeToggle from "./components/VolumeToggle";
 import { useEffect } from "react";
 

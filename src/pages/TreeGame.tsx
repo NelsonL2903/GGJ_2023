@@ -11,13 +11,14 @@ import { useEffect } from 'react';
 import { takeTurn } from "../helpers/turnOrder";
 import EndTurnButton from '../components/EndTurnButton';
 
+
 const Game = () => {
     const gameState = useSelector((state: RootState) => state.game);
     const dispatch = useDispatch();
 
     useEffect(() => {
         takeTurn(dispatch, gameState);
-    }, [gameState]);
+    }, [gameState.turnNumber]);
 
     return (
         <div className='flex-1 flex flex-col justify-center'>

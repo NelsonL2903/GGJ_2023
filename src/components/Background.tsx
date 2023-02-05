@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "../styles/DayNight.css";
-import LeftMenu from "./LeftMenu";
+import PauseMenu from "./PauseMenu";
 
 const Background = (props: any) => {
   useEffect(() => {
@@ -16,7 +16,7 @@ const Background = (props: any) => {
   return (
     <div id="container">
       <div className="">
-        <LeftMenu />
+        <PauseMenu />
       </div>
       <div className="flex justify-center items-center">{props.children}</div>
       <div id="stars" className="-z-10"></div>
