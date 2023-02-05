@@ -46,7 +46,7 @@ const animateRemoveCard = async (
 const animateSunMoon = (el: HTMLElement) => {
   anime({
     targets: el,
-    translateX: 1000,
+    translateX: 900,
     duration: 4000,
     loop: true,
     easing: "easeInOutSine",
