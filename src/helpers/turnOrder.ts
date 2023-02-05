@@ -1,6 +1,6 @@
 import { Game } from "../store/slice";
 import { drawCardFunc } from "./cards";
-import { updateEventsListFunc, event, totalEventsUpdateFunc, eventFullFunc } from "./EventFunctions";
+import { event, eventFullFunc } from "./EventFunctions";
 import { absorbFunc, resourceAndHPFunc } from "./StatFunctions";
 
 
@@ -93,8 +93,7 @@ export const events: Array<event> = [{
     name: "half water", displayText: "half water", HPDamage: 0, duration: 5 + 1, waterModifier: 2, phosphorusModifier: 0,
     nitrogenModifier: 0, waterConsumptionModifier: 0, phosphorusConsumptionModifier: 0,
     nitrogenConsumptionModifier: 0
-},
-
+}]
 
 //total events list
 let eventsList: number[] = [];

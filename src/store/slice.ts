@@ -31,9 +31,9 @@ export interface Game {
 const initialState: Game = {
     gameState: 'home',
     life: 100,
-    tWater: 100,
-    tN: 100,
-    tP: 100,
+    tWater: 18,
+    tN: 12,
+    tP: 12,
     aWater: 0,
     aN: 0,
     aP: 0,
@@ -43,6 +43,15 @@ const initialState: Game = {
     day: 1,
     season: 0,
     cards: [1, 2, 3, 4],
+    eventsList: [],
+    eventsListDurations: [],
+    Wmod: 0,
+    Nmod: 0,
+    Pmod: 0,
+    WCmod: 0,
+    NCmod: 0,
+    PCmod: 0,
+    HPDamage: 0
 };
 
 const gameSlice = createSlice({
@@ -103,14 +112,15 @@ const gameSlice = createSlice({
         setEventsList(state, action) {
             state.eventsList = action.payload;
         },
-        spliceEventsList(state, index) {
-            state.eventsList.splice[index];
+        spliceEventsList(state, action) {
+            state.eventsList.splice[parseInt(action.payload, 10)];
         },
         setEventsListDurations(state, action) {
             state.eventsList = action.payload;
         },
-        spliceEventsListDurations(state, index) {
-            state.eventsListDurations.splice[index];
+        spliceEventsListDurations(state, action) {
+            state.eventsListDurations.splice[parseInt(action.payload, 10)];
+        },
         setNmod(state, action) {
             state.Nmod = action.payload;
         },
@@ -131,17 +141,17 @@ const gameSlice = createSlice({
         },
         setHPDamage(state, action) {
             state.HPDamage = action.payload;
-        }
+        },
         decrementDuration(state) {
             for (let num : number = 1; num<=state.eventsListDurations.length; num++)  {  
                 state.eventsListDurations[num]--;
             }
         },
-        pushEventsList(state, num) {
-            state.eventsList.push[num];
+        pushEventsList(state, action) {
+            state.eventsList.push[action.payload];
         },
-        pushEventsListDurations(state, num) {
-            state.eventsListDurations.push[num];
+        pushEventsListDurations(state, action) {
+            state.eventsListDurations.push[action.payload];
         },
         playCard(state, action) {
             state.cards.splice(action.payload, 1);
