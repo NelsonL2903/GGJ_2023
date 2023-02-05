@@ -5,16 +5,18 @@ import * as slice from '../store/slice';
 import Stats from '../components/stats/Stats';
 import Ground from '../components/Ground';
 import Tree from "../components/Tree";
+import Cards from '../components/Cards';
 
 const Game = () => {
     const state = useSelector((state: RootState) => state.game);
     const dispatch = useDispatch();
 
     return (
-        <div className='flex-1'>
+        <div className='flex-1 flex flex-col justify-center'>
             <Stats />
             <Ground />
             <Tree />
+            <Cards />
         </div>
     );
 };

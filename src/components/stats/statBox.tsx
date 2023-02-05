@@ -13,7 +13,7 @@ const StatBox = (props: Props) => {
     <div className="items-center justify-center flex flex-col">
       <div className="relative">
         <img src="StatBar.png" className="w-12"></img>
-        <div className={`ml-[22px] w-2 absolute bottom-6 opacity-70 ${props.colour} h-${props.height}`} />
+        <div className={`ml-[23px] w-2 absolute bottom-6 opacity-50 ${props.colour} h-${props.height}`} />
       </div>
       <p className="text-white text-3xl">
         {props.type}
