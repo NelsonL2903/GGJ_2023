@@ -45,14 +45,22 @@ const animateRemoveCard = async (
   }, 749);
 };
 
-const animateSunMoon = (el: HTMLElement, path: any) => {
-  anime({
-    targets: el,
-    translateX: path("x"),
-    translateY: path("y"),
-    rotate: path("angle"),
-    easing: "linear",
-  });
+const animateSunMoon = (el: HTMLElement) => {
+    anime({
+        targets: el,
+        translateX: 800,
+        duration: 50000,
+    });
 };
 
-export { animatePlayCard, animateRemoveCard, animateSunMoon };
+const animateBackground = (el: HTMLElement, color: string) => {
+    console.log("Chaging Background Color: " + color)
+    anime({
+        
+        targets: el,
+        backgroundColor: 'color',
+        duration: 1000,
+    });
+};
+
+export { animatePlayCard, animateSunMoon, animateBackground, animateRemoveCard };

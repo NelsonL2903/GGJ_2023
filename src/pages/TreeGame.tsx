@@ -10,6 +10,7 @@ import Weather from '../components/Weather';
 import { useEffect } from 'react';
 import { takeTurn } from "../helpers/turnOrder";
 import EndTurnButton from '../components/EndTurnButton';
+import SunMoon from '../components/SunMoon';
 
 
 const Game = () => {
@@ -28,7 +29,10 @@ const Game = () => {
             <Tree />
             <Weather />
             <EndTurnButton />
+            <SunMoon />
             <Cards />
+
+            
         </div>
     );
 };

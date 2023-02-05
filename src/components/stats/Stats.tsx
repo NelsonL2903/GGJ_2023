@@ -14,7 +14,7 @@ const StatIcons = () => {
   };
 
   return (
-    <div className="flex absolute right-8 bottom-8 w-56 justify-between">
+    <div className="flex absolute right-8 bottom-8 w-56 justify-between z-50">
       <StatBox height={convertToPercent(health)} colour="bg-red-500" type="HP"></StatBox>
       <StatBox height={convertToPercent(water / 18 * 100)} colour="bg-blue-500" type="H20"></StatBox>
       <StatBox height={convertToPercent(nitrogen / 12 * 100)} colour="bg-white" type="N20"></StatBox>

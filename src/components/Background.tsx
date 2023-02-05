@@ -1,8 +1,14 @@
 import { useEffect } from "react";
 import "../styles/DayNight.css";
 import PauseMenu from "./PauseMenu";
+import { animateBackground } from "../anime/animations";
+import { useSelector } from "react-redux";
+import { RootState } from "../store/store";
 
-const Background = (props: any) => {
+const Background = (props: any) => {  
+  const turnNumber = useSelector((state: RootState) => state.game.turnNumber);
+
+
   useEffect(() => {
     for (var i = 0; i < 200; i++) {
       const star = document.createElement("div");
@@ -13,17 +19,17 @@ const Background = (props: any) => {
     }
   }, []);
 
+  useEffect(() => {
+    const color = turnNumber % 2 === 0 ?  "#426ff5" : '#000';
+    animateBackground(document.getElementById('background')!, color)
+  }, [turnNumber]);
+
   return (
-    <div id="container">
+    <div id="container" className="bg-[#426ff5]">
       <div className="">
         <PauseMenu />
       </div>
-      <div className="flex justify-center items-center">{props.children}</div>
-      <div id="stars" className="-z-10"></div>
-      <div id="asters" className="-z-10">
-        <div className="sun"></div>
-        <div className="moon"></div>
-      </div>
+      <div className="flex justify-center items-center z-20">{props.children}</div>
     </div>
   );
 };

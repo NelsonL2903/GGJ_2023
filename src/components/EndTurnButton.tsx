@@ -10,7 +10,7 @@ const EndTurnButton = () => {
     }
 
     return (
-        <div className='absolute bottom-64 right-8 z-1'>
+        <div className='absolute bottom-64 right-8 z-20'>
             <button className="p-2 cursor-pointer" onClick={endTurn}>
                 <p className="text-white text-lg">
                     End Turn <DoubleArrowIcon />

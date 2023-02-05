@@ -49,42 +49,42 @@ const Tree = () => {
         <img
           src={season[seasonNum].leafSource!}
           alt="leaf source"
-          className="h-[100vh] w-[100vw] z-4 absolute bottom-[0] left-[-2vw]"
+          className="h-[100vh] w-[100vw] z-20 absolute bottom-[0] left-[-2vw]"
         ></img>
       )}
       {season[seasonNum].groundSource && (
         <img
           src={season[seasonNum].groundSource!}
           alt="ground source"
-          className="h-[100vh] w-[100vw] z-4 absolute bottom-[0] left-[0vw]"
+          className="h-[100vh] w-[100vw] z-20 absolute bottom-[0] left-[0vw]"
         ></img>
       )}
       {isSick && !isDead && (
         <img
           src={SickTree}
           alt="sick tree"
-          className="h-[100vh] w-[100vw] z-4 absolute bottom-[0] left-[-2vw]"
+          className="h-[100vh] w-[100vw] z-20 absolute bottom-[0] left-[-2vw]"
         ></img>
       )}
       {!isSick && !isDead && (
         <img
           src={LiveTree}
           alt="live tree"
-          className="h-[100vh] w-[100vw] z-4 absolute bottom-[0] left-[-2vw]"
+          className="h-[100vh] w-[100vw] z-20 absolute bottom-[0] left-[-2vw]"
         ></img>
       )}
       {isFungus && !isDead && (
         <img
           src={Fungus}
           alt="fungus"
-          className="h-[100vh] w-[100vw] z-4 absolute bottom-[0] left-[-2vw]"
+          className="h-[100vh] w-[100vw] z-20 absolute bottom-[0] left-[-2vw]"
         ></img>
       )}
       {isDead && (
         <img
           src={DeadTree}
           alt="dead tree"
-          className="h-[100vh] w-[100vw] z-4 absolute bottom-[0] left-[-2vw]"
+          className="h-[100vh] w-[100vw] z-20 absolute bottom-[0] left-[-2vw]"
         ></img>
       )}
     </div>

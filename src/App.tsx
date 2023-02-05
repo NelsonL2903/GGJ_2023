@@ -17,8 +17,8 @@ function App() {
   return (
     <div className="flex">
 
-      <div className="bg-black w-1/4 height-[100vh]"></div>
-      <div className="flex-grow-0 w-[900px] relative overflow-hidden ">
+      <div className="bg-black w-1/4 height-[100vh] z-50"></div>
+      <div className="flex-grow-0 w-[900px] relative">
         {gameState === "home" &&
           <div>
             <Background >
@@ -37,7 +37,7 @@ function App() {
           <VolumeToggle />
         </div>
       </div>
-      <div className="bg-black w-1/4 height-[100vh]"></div>
+      <div className="bg-black w-1/4 height-[100vh] z-50"></div>
     </div>
   );
 }
