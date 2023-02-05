@@ -115,15 +115,15 @@ export function takeTurn(turnNumber: number, dispatch: any) {
     //event
     eventFullFunc(turnNumber, eventsList, eventsListDurations, totalEvents, events);
     //absorption
-    absorbFunc(stats, env);
+    //absorbFunc(stats, env);
     //draw
-    drawCardFunc(hand);
+    //drawCardFunc(hand);
     //play
 
     //resource and hp update
-    resourceAndHPFunc(stats, turnNumber, totalEvents.HPDamage, totalEvents.waterConsumptionModifier, totalEvents.nitrogenConsumptionModifier, totalEvents.phosphorusConsumptionModifier);
+    // stats = resourceAndHPFunc(stats, turnNumber, totalEvents.HPDamage, totalEvents.waterConsumptionModifier, totalEvents.nitrogenConsumptionModifier, totalEvents.phosphorusConsumptionModifier);
 
     //update environment
-    dispatch()
+    dispatch();
 }
 

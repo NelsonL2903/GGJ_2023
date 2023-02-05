@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 interface Game {
     gameState: string,
+    // 0 healthy, 1 sick, 2, dead
     life: number,
     tWater: number,
     tN: number,
@@ -13,7 +14,8 @@ interface Game {
     dayCycle: boolean,
     event: string,
     day: number;
-    season: 'spring' | 'summer' | 'fall' | 'winter' | 'dead',
+    // 0 = spring, 1 = summer, 2 = fall, 3 = winter, 4 = dead
+    season: number,
 }
 
 const initialState: Game = {
@@ -29,7 +31,7 @@ const initialState: Game = {
     dayCycle: true,
     event: '',
     day: 0,
-    season: 'summer',
+    season: 1,
 };
 
 const gameSlice = createSlice({
