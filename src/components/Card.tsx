@@ -1,22 +1,22 @@
 import HalfWater from "/HalfWaterCard.png";
 import AntidoteCard from "/antidote.png";
 import CompostCard from "/compost.png";
-import FullWater from "/FullWaterCard.png";
 import NewHand from "/newhand.png";
 import Pesticide from "/pesticide.png";
 import RemoveCard from "/removeCard.png";
-// import "../styles/Cards.css";
-import { useState } from "react";
 import { animatePlayCard, animateRemoveCard } from "../anime/animations";
 import { useDispatch } from "react-redux";
+import { setTN, setTP, setTWater } from "../store/slice";
 
 interface Props {
   cardNumber: number;
   index: number;
+  n: number;
+  p: number;
+  water: number;
 }
 
 const Card = (props: Props) => {
-  const [image, setImage] = useState<any>(null);
   const dispatch = useDispatch();
 
   const CardImages = {
@@ -47,6 +47,28 @@ const Card = (props: Props) => {
 
   const playCard = (index: number) => {
     animatePlayCard(document.getElementById(`.card${index}`)!, index, dispatch);
+    console.log(props.cardNumber)
+    switch (props.cardNumber) {
+      case 0:
+      case 1:
+        dispatch(setTN(12))
+        break;
+      case 2:
+      case 3:
+        dispatch(setTP(12))
+        break;
+      case 4:
+      case 5:
+        dispatch(setTN(props.n + 8))
+        break;
+      case 6:
+      case 7:
+        dispatch(setTP(props.p + 8))
+        break;
+      case 8:
+      case 9:
+        dispatch(setTWater(props.water + 9))
+    }
   };
 
   const removeCard = (index: number) => {

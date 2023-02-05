@@ -37,7 +37,7 @@ const Game = () => {
                 </>
                 :
                 <div className='top-4 justify-center items-center w-full absolute z-20'>
-                    <p className='text-9xl font-bold text-black'>Game Over</p>
+                    <p className='text-9xl font-bold text-white'>Game Over</p>
                     <button className="p-2 cursor-pointer justify-center items-center w-full" onClick={() => dispatch(resetGame())}>
                         <p className="text-white text-5xl">
                             Main menu

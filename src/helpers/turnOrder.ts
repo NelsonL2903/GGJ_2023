@@ -1,5 +1,4 @@
 import { Game } from "../store/slice";
-import { drawCardFunc } from "./cards";
 import { event, eventFullFunc } from "./EventFunctions";
 import { absorbFunc, resourceAndHPFunc } from "./StatFunctions";
 
@@ -97,11 +96,6 @@ export const events: Array<event> = [{
 const takeTurn = (dispatch: (payload: any) => void, state: Game ) => {
     eventFullFunc(dispatch, state);
     absorbFunc(dispatch, state);
-    //draw
-    //drawCardFunc(hand);
-    //maybe discard a card
-    //play
-
     resourceAndHPFunc(dispatch, state);
 }
 
