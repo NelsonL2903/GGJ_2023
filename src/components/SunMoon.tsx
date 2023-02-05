@@ -16,7 +16,6 @@ const SunMoon = () => {
 
     useEffect(() => {
         animateMoon();
-
     }, []);
 
     return (
