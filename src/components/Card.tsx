@@ -7,13 +7,17 @@ import Pesticide from "../assets/cards/Pesticide.png";
 import RemoveCard from "../assets/cards/RemoveCard.png";
 import "../styles/Cards.css";
 import { useState } from "react";
+import anime from "animejs";
 
 interface Props {
     cardNumber: number;
+    index: number;
 }
 
 const Card = (props: Props) => {
     const [image, setImage] = useState<any>(null);
+
+    
 
     const CardImages = {
         "0": { image: CompostCard, name: "Full N20" },
@@ -33,7 +37,7 @@ const Card = (props: Props) => {
         "14": { image: NewHand, name: "50 N20: 50 P205" },
         "15": { image: NewHand, name: "Replace Hand" },
         "16": { image: AntidoteCard, name: "Antidote" },
-        "17": { image: Pesticide, name: "Pesticide" }, 
+        "17": { image: Pesticide, name: "Pesticide" },
     };
 
 
