@@ -7,7 +7,6 @@ import Pesticide from "../assets/cards/Pesticide.png";
 import RemoveCard from "../assets/cards/RemoveCard.png";
 import "../styles/Cards.css";
 import { useState } from "react";
-import anime from "animejs";
 
 interface Props {
     cardNumber: number;
@@ -38,9 +37,13 @@ const Card = (props: Props) => {
         "17": { image: Pesticide, name: "Pesticide" },
     };
 
+    const playCard = () => {
+        console.log("play card");
+        
+    };
 
     return (
-        <div className={` overflow-hidden relative`}>
+        <div className={`overflow-hidden relative hover:font-bold`} onClick={playCard} id={`.card${props.index}`}>
             {/* @ts-ignore */}
             <img src={CardImages[props.cardNumber.toString()].image} className="h-48 card">
             </img>
