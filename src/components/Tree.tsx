@@ -18,7 +18,8 @@ import { useState } from 'react';
 
 
 const Tree = () => {
-    const life = useSelector((state: RootState) => state.game.life);
+    var healthNum = useSelector((state: RootState) => state.game.life);
+    var seasonNum = useSelector((state: RootState) => state.game.season);
 
     const [health, setHealth] = useState([{type: "Alive", source: LiveTree},
                                             {type: "Sick", source: SickTree},
@@ -29,9 +30,6 @@ const Tree = () => {
                                             {season: "Fall", leafSource: FallLeaves, groundSource: FallGround},
                                             {season: "Winter", leafSource: WinterLeaves, groundSource: WinterGround},      
                                             {season: "Dead", leafSource: null, groundSource: null}]);
-
-    var seasonNum = 1;
-    var healthNum = 0;
 
     return (
         <div>
