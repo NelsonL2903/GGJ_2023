@@ -82,22 +82,26 @@ const Card = (props: Props) => {
   };
 
   return (
-    <div
-      className={` relative hover:font-bold`}
-      onClick={cardSelected}
-      id={`.card${props.index}`}
-    >
-      {/* @ts-ignore */}
-      <img
-        src={CardImages[props.cardNumber.toString()].image}
-        alt="card"
-        className="h-48 card"
-      ></img>
-      {/* @ts-ignore */}
-      <p className="text-white absolute bottom-16 left-10 text-small">
-        {CardImages[props.cardNumber.toString()].name}
-      </p>
-    </div>
+    <>
+      {props.index !== 0 && (
+        <div
+          className={` relative hover:font-bold`}
+          onClick={cardSelected}
+          id={`.card${props.index}`}
+        >
+          {/* @ts-ignore */}
+          <img
+            src={CardImages[props.cardNumber.toString()].image}
+            alt="card"
+            className="h-48 card"
+          ></img>
+          {/* @ts-ignore */}
+          <p className="text-white absolute bottom-16 left-10 text-small">
+            {CardImages[props.cardNumber.toString()].name}
+          </p>
+        </div>
+      )}
+    </>
   );
 };
 
