@@ -21,15 +21,14 @@ const SunMoon = () => {
 
     return (
         <div className="absolute top-24 -left-20 z-10 ">
-            <div id="sun-moon" onClick={animateMoon}>
+            <div id="sun-moon" >
                 {
                     turnNumber % 2 === 0 ?
-                    <img src={Sun} className="h-12" /> :
-                    <img src={Moon} className="h-12" />
-                    
+                        <img src={Sun} className="h-12" /> :
+                        <img src={Moon} className="h-12" />
                 }
             </div>
-        </div>        
+        </div>
     );
 };
 

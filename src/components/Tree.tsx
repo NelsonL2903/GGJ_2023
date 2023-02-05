@@ -25,13 +25,13 @@ const Tree = () => {
   var isFungus = false;
   var isDead = false;
 
-  if (events.includes(0)) {
+  if (events.includes(6)) {
     isSick = true;
   }
-  if (events.includes(1)) {
+  if (events.includes(2)) {
     isFungus = true;
   }
-  if (events.includes(2)) {
+  if (events.includes(4)) {
     isDead = true;
   }
 

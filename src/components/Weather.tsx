@@ -28,29 +28,28 @@ const Weather = () => {
 
     
 
-    if(events.includes(3)){
+    if(events.includes(1)){
         isRaining = true;
         isSnowing = false;
         isBlizzarding = false;
         isLightning = false;
-    } else if(events.includes(4)){
+    } else if(events.includes(7)){
         isSnowing = true;
         isRaining = false;
         isBlizzarding = false;
         isLightning = false;
-    } else if(events.includes(5)){
+    } else if(events.includes(7)){
         isBlizzarding = true;
         isRaining = false;
         isSnowing = false;
         isLightning = false;
-    } else if(events.includes(6)){
+    } else if(events.includes(1)){
         isBlizzarding = false;
         isRaining = false;
         isSnowing = false;
         isLightning = true;
     } else {
         var isRaining = false;
-
         var isSnowing = false;
         var isBlizzarding = false;
         var isLightning = false;

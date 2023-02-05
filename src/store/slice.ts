@@ -66,7 +66,7 @@ const gameSlice = createSlice({
       if(action.payload > 100) state.life = 100;
       if(action.payload < 0) {
         state.life = 0;
-        state.event = [2];
+        state.event = [4];
         state.season = 4;
       }
     },
