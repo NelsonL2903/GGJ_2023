@@ -1,7 +1,7 @@
+import { Game } from "../store/slice";
 import { drawCardFunc } from "./cards";
 import { updateEventsListFunc, event, totalEventsUpdateFunc, eventFullFunc } from "./EventFunctions";
 import { absorbFunc, resourceAndHPFunc } from "./StatFunctions";
-import { useSelector, useDispatch } from 'react-redux';
 
 
 //creating event objects
@@ -111,21 +111,26 @@ let stats: number[];
 let env: number[];
 let hand: number[];
 
-export function takeTurn(turnNumber: number, dispatch: any) {
-
+const takeTurn = (dispatch: (payload: any) => void, state: Game ) => {
     // Determine random event 
     //event
-    eventFullFunc(turnNumber, eventsList, eventsListDurations, totalEvents, events);
+    // eventFullFunc(turnNumber, eventsList, eventsListDurations, totalEvents, events);
     //absorption and update environment
-    absorbFunc();
+    absorbFunc(dispatch, state);
     //draw
     //drawCardFunc(hand);
     //maybe discard a card
     //play
 
     //resource and hp update
-    resourceAndHPFunc(totalEvents.waterConsumptionModifier, totalEvents.nitrogenConsumptionModifier, totalEvents.phosphorusConsumptionModifier);
+    // resourceAndHPFunc(totalEvents.waterConsumptionModifier, totalEvents.nitrogenConsumptionModifier, totalEvents.phosphorusConsumptionModifier);
 
     //end turn
 }
+
+const endTurn = () => {
+    
+}
+
+export { takeTurn, endTurn }
 

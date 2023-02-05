@@ -62,7 +62,7 @@ const PauseMenu = (props: any) => {
             <p className="text-green-600 text-2xl">Created by</p>
             <p className="text-green-600 text-2xl">Ryan Eggens, Nelson Loop,</p>
             <p className="text-green-600 text-2xl">Hayden Parsons,</p>
-            <p className="text-green-600 text-2xl">Alex Tsarapkine, Ben Zhao</p>
+            <p className="text-green-600 text-2xl">Alexander Tsarapkine, Benjamin Zhao</p>
           </div>
         </Box>
       </Modal>

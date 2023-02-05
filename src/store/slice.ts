@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface Game {
+export interface Game {
     gameState: string,
     life: number,
     tWater: number,
@@ -13,7 +13,7 @@ interface Game {
     dayCycle: boolean,
     event: number[],
     day: number;
-    // 0 = spring, 1 = summer, 2 = fall, 3 = winter, 4 = dead
+    // 3 = spring, 0 = summer, 1 = fall, 2 = winter, 4 = dead
     season: number,
     cards: number[];
 }
@@ -30,8 +30,8 @@ const initialState: Game = {
     turnNumber: 0,
     dayCycle: true,
     event: [],
-    day: 0,
-    season: 1,
+    day: 1,
+    season: 0,
     cards: [1, 2, 3, 4],
 };
 
@@ -65,6 +65,12 @@ const gameSlice = createSlice({
         },
         incrementTurnNumber(state) {
             state.turnNumber += 1;
+            if (state.turnNumber % 2 === 0) {
+                state.day = state.turnNumber / 2 + 1;
+            }
+            if (state.day % 10 === 0) {
+                state.season = (state.day / 10) % 4;
+            }
         },
         toggleDayCycle(state) {
             state.dayCycle = !state.dayCycle;

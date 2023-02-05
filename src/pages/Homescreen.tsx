@@ -19,7 +19,7 @@ const HomeScreen = () => {
         <p className="text-orange-900 text-3xl">Created by</p>
         <p className="text-orange-900 text-3xl">Ryan Eggens, Nelson Loop,</p>
         <p className="text-orange-900 text-3xl">Hayden Parsons,</p>
-        <p className="text-orange-900 text-3xl">Alex Tsarapkine, Ben Zhao</p>
+        <p className="text-orange-900 text-3xl">Alexander Tsarapkine, Benjamin Zhao</p>
       </div>
     </div>
   );
