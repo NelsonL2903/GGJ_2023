@@ -1,66 +1,49 @@
-import HalfWaterCard from "../assets/cards/HalfWaterCard.png";
+import HalfWater from "../assets/cards/HalfWaterCard.png";
 import AntidoteCard from "../assets/cards/antidote.png";
 import CompostCard from "../assets/cards/compost.png";
-import FullWaterCard from "../assets/cards/FullWaterCard.png";
+import FullWater from "../assets/cards/FullWaterCard.png";
 import NewHand from "../assets/cards/NewHand.png";
 import Pesticide from "../assets/cards/Pesticide.png";
 import RemoveCard from "../assets/cards/RemoveCard.png";
 import "../styles/Cards.css";
+import { useState } from "react";
 
-const Card = (props: any) => {
-    const cardNumber = props.cardNumber;
-    switch (cardNumber) {
-        //100n
-        case (0 || 1):
-            
-            break;
-        //100p
-        case (2 || 3):
+interface Props {
+    cardNumber: number;
+}
 
-            break;
-        //66n
-        case (4 || 5):
+const Card = (props: Props) => {
+    const [image, setImage] = useState<any>(null);
 
-            break;
-        //66p
-        case (6 || 7):
+    const CardImages = {
+        "0": { image: CompostCard, name: "Full N20" },
+        "1": { image: CompostCard, name: "Full N20" },
+        "2": { image: CompostCard, name: "Full P205" },
+        "3": { image: CompostCard, name: "Full P205" },
+        "4": { image: CompostCard, name: "2/3 N20" },
+        "5": { image: CompostCard, name: "2/3 N20" },
+        "6": { image: CompostCard, name: "2/3 P205" },
+        "7": { image: CompostCard, name: "2/3 P205" },
+        "8": { image: HalfWater, name: "Half H20" },
+        "9": { image: HalfWater, name: "Half H20" },
+        "10": { image: RemoveCard, name: "Discard" },
+        "11": { image: RemoveCard, name: "Discard" },
+        "12": { image: NewHand, name: "Replace Hand" },
+        "13": { image: NewHand, name: "Replace Hand" },
+        "14": { image: NewHand, name: "50 N20: 50 P205" },
+        "15": { image: NewHand, name: "Replace Hand" },
+        "16": { image: AntidoteCard, name: "Antidote" },
+        "17": { image: Pesticide, name: "Pesticide" }, 
+    };
 
-            break;
-        //half water
-        case (8 || 9):
-
-            break;
-        //discard
-        case (10 || 11):
-            //NEEDS USER INTERACTION -----------------------------------------------------********************************
-            break;
-        //replace hand
-        case (12 || 13):
-
-            break;
-        //50/50
-        case 14:
-
-            break;
-        //large water
-        case 15:
-
-            break;
-        //antidote
-        case 16:
-
-            break;
-        //pesticide
-        case 17:
-
-            break;
-    }
 
     return (
-
-        <div className={`mx-2 overflow-hidden `}>
-            {props.type === "HalfWater" &&
-                <img src={HalfWaterCard} className="h-48 card"></img>}
+        <div className={`mx-2 overflow-hidden relative`}>
+            {/* @ts-ignore */}
+            <img src={CardImages[props.cardNumber.toString()].image} className="h-48 card">
+            </img>
+            {/* @ts-ignore */}
+            <p className="text-white absolute bottom-7 left-8 text-small">{CardImages[props.cardNumber.toString()].name}</p>
         </div>
 
     );

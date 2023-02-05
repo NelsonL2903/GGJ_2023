@@ -83,7 +83,8 @@ const gameSlice = createSlice({
         },
         setSeason(state, action) {
             state.season = action.payload;
-        }
+        },
+        
     }
 });
 
