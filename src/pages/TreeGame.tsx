@@ -11,6 +11,7 @@ import { useEffect } from 'react';
 import { takeTurn } from "../helpers/turnOrder";
 import EndTurnButton from '../components/EndTurnButton';
 import SunMoon from '../components/SunMoon';
+import { resetGame } from '../store/slice';
 
 
 const Game = () => {
@@ -37,6 +38,11 @@ const Game = () => {
                 :
                 <div className='top-4 justify-center items-center w-full absolute z-20'>
                     <p className='text-9xl font-bold text-white'>Game Over</p>
+                    <button className="p-2 cursor-pointer justify-center items-center w-full" onClick={() => dispatch(resetGame())}>
+                        <p className="text-white text-5xl">
+                            Main menu
+                        </p>
+                    </button>
                 </div> 
             }
         </div>
