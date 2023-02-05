@@ -62,7 +62,13 @@ const gameSlice = createSlice({
       state.gameState = action.payload;
     },
     setLife(state, action) {
-      state.life = action.payload;
+      if(action.payload <= 100) state.life = action.payload;
+      if(action.payload > 100) state.life = 100;
+      if(action.payload < 0) {
+        state.life = 0;
+        state.event = [2];
+        state.season = 4;
+      }
     },
     setTWater(state, action) {
       state.tWater = action.payload;

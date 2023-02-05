@@ -32,8 +32,7 @@ function App() {
             <Game />
           </Background>
         }
-
-        <div className="absolute right-4 top-4 z-1">
+        <div className="absolute right-4 top-4 z-50">
           <VolumeToggle />
         </div>
       </div>
