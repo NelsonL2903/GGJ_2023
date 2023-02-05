@@ -44,7 +44,7 @@ const Card = (props: Props) => {
     };
 
     return (
-        <div className={`overflow-hidden relative hover:font-bold`} onClick={playCard} id={`.card${props.index}`}>
+        <div className={` relative hover:font-bold`} onClick={playCard} id={`.card${props.index}`}>
             {/* @ts-ignore */}
             <img src={CardImages[props.cardNumber.toString()].image} className="h-48 card">
             </img>

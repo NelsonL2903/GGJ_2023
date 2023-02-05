@@ -37,6 +37,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
             ["@vitejs/plugin-react-swc", "virtual:f4c1f22b9d9d6e1366890f175234022275e0428f858ead2da980de72960cf7791c0fba5b4bb0be832ad0bd9f74723d676b7478981038ba61388e16b1a4e10801#npm:3.1.0"],\
+            ["animejs", "npm:3.2.1"],\
             ["autoprefixer", "virtual:f4c1f22b9d9d6e1366890f175234022275e0428f858ead2da980de72960cf7791c0fba5b4bb0be832ad0bd9f74723d676b7478981038ba61388e16b1a4e10801#npm:10.4.13"],\
             ["postcss", "npm:8.4.21"],\
             ["react", "npm:18.2.0"],\
@@ -1399,6 +1400,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["animejs", [\
+        ["npm:3.2.1", {\
+          "packageLocation": "./.yarn/cache/animejs-npm-3.2.1-030e6c4694-6939171bed.zip/node_modules/animejs/",\
+          "packageDependencies": [\
+            ["animejs", "npm:3.2.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["ansi-regex", [\
         ["npm:5.0.1", {\
           "packageLocation": "./.yarn/cache/ansi-regex-npm-5.0.1-c963a48615-2aa4bb54ca.zip/node_modules/ansi-regex/",\
@@ -2104,6 +2114,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.0.27"],\
             ["@types/react-dom", "npm:18.0.10"],\
             ["@vitejs/plugin-react-swc", "virtual:f4c1f22b9d9d6e1366890f175234022275e0428f858ead2da980de72960cf7791c0fba5b4bb0be832ad0bd9f74723d676b7478981038ba61388e16b1a4e10801#npm:3.1.0"],\
+            ["animejs", "npm:3.2.1"],\
             ["autoprefixer", "virtual:f4c1f22b9d9d6e1366890f175234022275e0428f858ead2da980de72960cf7791c0fba5b4bb0be832ad0bd9f74723d676b7478981038ba61388e16b1a4e10801#npm:10.4.13"],\
             ["postcss", "npm:8.4.21"],\
             ["react", "npm:18.2.0"],\
