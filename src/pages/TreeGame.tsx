@@ -20,20 +20,12 @@ const Game = () => {
 
     useEffect(() => {
         console.log("STARTING GAME 🏁");
-
         // Main Game loop
         setInterval(() => {
             dispatch(slice.incrementDay());
-            takeTurn(game.day, dispatch);
+            // takeTurn(game.day, dispatch);
         }, 2000);
-
-
-
-
-
     }, []);
-
-
 
     return (
         <div className='flex-1 flex flex-col justify-center'>

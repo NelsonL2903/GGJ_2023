@@ -15,6 +15,7 @@ interface Game {
     day: number;
     // 0 = spring, 1 = summer, 2 = fall, 3 = winter, 4 = dead
     season: number,
+    cards: number[];
 }
 
 const initialState: Game = {
@@ -28,9 +29,10 @@ const initialState: Game = {
     aP: 0,
     turnNumber: 0,
     dayCycle: true,
-    event: '',
+    event: [0],
     day: 0,
     season: 1,
+    cards: [1, 2, 3, 4],
 };
 
 const gameSlice = createSlice({
