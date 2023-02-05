@@ -15,6 +15,16 @@ interface Game {
     day: number;
     // 0 = spring, 1 = summer, 2 = fall, 3 = winter, 4 = dead
     season: number,
+    eventsList: number[],
+    eventsListDurations: number[],
+    //W,N and P stand for water, nitrogen phosphorus, C stands for consumption
+    Wmod : number,
+    Nmod : number,
+    Pmod : number,
+    WCmod : number,
+    NCmod : number,
+    PCmod : number,
+    HPDamage : number
 }
 
 const initialState: Game = {
@@ -81,10 +91,57 @@ const gameSlice = createSlice({
         },
         setSeason(state, action) {
             state.season = action.payload;
+        },
+        setEventsList(state, action) {
+            state.eventsList = action.payload;
+        },
+        spliceEventsList(state, index) {
+            state.eventsList.splice[index];
+        },
+        setEventsListDurations(state, action) {
+            state.eventsList = action.payload;
+        },
+        spliceEventsListDurations(state, index) {
+            state.eventsListDurations.splice[index];
+        setNmod(state, action) {
+            state.Nmod = action.payload;
+        },
+        setWmod(state, action) {
+            state.Wmod = action.payload;
+        },
+        setPmod(state, action) {
+            state.Pmod = action.payload;
+        },
+        setNCmod(state, action) {
+            state.NCmod = action.payload;
+        },
+        setPCmod(state, action) {
+            state.PCmod = action.payload;
+        },
+        setWCmod(state, action) {
+            state.WCmod = action.payload;
+        },
+        setHPDamage(state, action) {
+            state.HPDamage = action.payload;
+        }
+        decrementDuration(state) {
+            for (let num : number = 1; num<=state.eventsListDurations.length; num++)  {  
+                state.eventsListDurations[num]--;
+            }
+        },
+        pushEventsList(state, num) {
+            state.eventsList.push[num];
+        },
+        pushEventsListDurations(state, num) {
+            state.eventsListDurations.push[num];
         }
     }
 });
 
 export const { setGameState, setLife, setTWater, setTN, setTP, setAWater, setAN, setAP,
-    incrementTurnNumber, toggleDayCycle, setEvent, resetGame, incrementDay, setDay, setSeason } = gameSlice.actions;
+    incrementTurnNumber, toggleDayCycle, setEvent, resetGame, incrementDay, setDay, setSeason,
+    setEventsList, spliceEventsList, setEventsListDurations, spliceEventsListDurations,
+    setNmod, setPmod, setWmod, setNCmod, setPCmod, setWCmod, setHPDamage, decrementDuration,
+    pushEventsList, pushEventsListDurations
+    } = gameSlice.actions;
 export default gameSlice.reducer;

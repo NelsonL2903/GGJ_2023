@@ -3,7 +3,7 @@ import { treeMineralAbsorptionFunc } from "./StatFunctions";
 
 //simulates drawing a card, number of cards is 11 with 7 commons (twice as likely)
 function drawCardFunc(hand : number[]) : void {
-    hand.push(Math.floor(18 * Math.random()) + 1);
+    hand.push(Math.floor(17 * Math.random()) + 1);
 }
 
 //check for too many cards
@@ -13,8 +13,7 @@ function tooManyCardsFunc(hand : number[]) : boolean {
 
 //discard a card
 function discardFunc(hand : number[], discard : number) : void {
-    hand[discard] = hand[hand.length];
-    hand.pop;
+    hand.splice(discard);
 }
 
 //play a card
@@ -74,10 +73,8 @@ function playCardFunc(hand : number[], play : number, eventsList : number[], eve
         case 16:
             for(let num = 1; num <= eventsList.length; num++){
                 if(eventsList[num] == 6){  
-                    eventsList[num] = eventsList[eventsList.length];
-                    eventsList.pop;
-                    eventsListDurations[num] = eventsListDurations[eventsListDurations.length];
-                    eventsListDurations.pop;
+                    eventsList.splice(num)
+                    eventsListDurations.splice(num);
                 }
             }
             break;
@@ -85,10 +82,8 @@ function playCardFunc(hand : number[], play : number, eventsList : number[], eve
         case 17:
             for(let num = 1; num <= eventsList.length; num++){
                 if(eventsList[num] == 8){  
-                    eventsList[num] = eventsList[eventsList.length];
-                    eventsList.pop;
-                    eventsListDurations[num] = eventsListDurations[eventsListDurations.length];
-                    eventsListDurations.pop;
+                    eventsList.splice(num);
+                    eventsListDurations.splice(num);
                 }
             }
             break;
