@@ -1,11 +1,11 @@
 import { useState } from "react";
 import PauseIcon from "@mui/icons-material/Pause";
 import { brown } from "@material-ui/core/colors";
-import { Modal, Box, Typography } from "@mui/material";
+import { Modal, Box } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useDispatch } from "react-redux";
-import { setGameState, resetGame, setDay } from "../store/slice";
+import { resetGame } from "../store/slice";
 
 const PauseMenu = (props: any) => {
   const dispatch = useDispatch();
@@ -27,12 +27,10 @@ const PauseMenu = (props: any) => {
 
   const toHome = () => {
     dispatch(resetGame());
-    dispatch(setDay(0));
-    dispatch(setGameState("home"));
   };
 
   return (
-    <div className="absolute flex right-16 top-4 z-20">
+    <div className="absolute flex right-16 top-4 z-50">
       <div>
         <div>
           <PauseIcon

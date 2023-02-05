@@ -103,9 +103,7 @@ const gameSlice = createSlice({
     setEvent(state, action) {
       state.event = action.payload;
     },
-    resetGame(state) {
-      state = initialState;
-    },
+    resetGame: () => initialState,
     setDay(state, action) {
       state.day = action.payload;
     },
