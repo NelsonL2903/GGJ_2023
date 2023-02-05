@@ -1,14 +1,14 @@
-
+import HalfWaterCard from "../../public/HalfWaterCard.png";
+import "../styles/Cards.css"
 
 const Card = (props: any) => {
     return (
-        <div className="card">
-            <div className="card-header">
-                <h2>{props.title}</h2>
-            </div>
-            <div className="card-body">
-                {props.children}
-            </div>
+        <div className={`mx-2 overflow-hidden `}>
+            {props.type === "HalfWater" &&
+                <img src={HalfWaterCard} className="h-48 card"></img>}
         </div>
+
     );
 };
+
+export default Card;
