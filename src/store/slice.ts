@@ -79,6 +79,15 @@ const gameSlice = createSlice({
     setTN(state, action) {
       state.tN = action.payload;
     },
+    addTWater(state, action) {
+      state.tWater = state.tWater + action.payload > 18 ? 18 : state.tWater + action.payload;
+    },
+    addTP(state, action) {
+      state.tP = state.tP + action.payload > 12 ? 12 : state.tP + action.payload;
+    },
+    addTN(state, action) {
+      state.tN = state.tN + action.payload > 12 ? 12 : state.tN + action.payload;
+    },
     setAWater(state, action) {
       state.aWater = action.payload;
     },
@@ -181,6 +190,9 @@ export const {
   setTWater,
   setTN,
   setTP,
+  addTWater,
+  addTN,
+  addTP,
   setAWater,
   setAN,
   setAP,

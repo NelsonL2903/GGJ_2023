@@ -6,7 +6,7 @@ import Pesticide from "/pesticide.png";
 import RemoveCard from "/removeCard.png";
 import { animatePlayCard, animateRemoveCard } from "../anime/animations";
 import { useDispatch } from "react-redux";
-import { setTN, setTP, setTWater } from "../store/slice";
+import { addTN, addTP, addTWater } from "../store/slice";
 
 interface Props {
   cardNumber: number;
@@ -51,23 +51,23 @@ const Card = (props: Props) => {
     switch (props.cardNumber) {
       case 0:
       case 1:
-        dispatch(setTN(12))
+        dispatch(addTN(12))
         break;
       case 2:
       case 3:
-        dispatch(setTP(12))
+        dispatch(addTP(12))
         break;
       case 4:
       case 5:
-        dispatch(setTN(props.n + 8))
+        dispatch(addTN(props.n + 8))
         break;
       case 6:
       case 7:
-        dispatch(setTP(props.p + 8))
+        dispatch(addTP(props.p + 8))
         break;
       case 8:
       case 9:
-        dispatch(setTWater(props.water + 9))
+        dispatch(addTWater(props.water + 9))
     }
   };
 
