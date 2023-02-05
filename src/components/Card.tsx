@@ -46,21 +46,14 @@ const Card = (props: Props) => {
       props.index,
       dispatch
     );
-    animateRemoveCard(
-      document.getElementById(`.card${(props.index + 1) % 4}`)!,
-      (props.index + 1) % 4,
-      dispatch
-    );
-    animateRemoveCard(
-      document.getElementById(`.card${(props.index + 2) % 4}`)!,
-      (props.index + 2) % 4,
-      dispatch
-    );
-    animateRemoveCard(
-      document.getElementById(`.card${(props.index + 3) % 4}`)!,
-      (props.index + 3) % 4,
-      dispatch
-    );
+
+    for (var i = 1; i < 4; ++i) {
+      animateRemoveCard(
+        document.getElementById(`.card${(props.index + i) % 4}`)!,
+        (props.index + i) % 4,
+        dispatch
+      );
+    }
   };
 
   return (
