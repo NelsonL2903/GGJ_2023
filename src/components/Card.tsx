@@ -5,7 +5,7 @@ import FullWater from "../assets/cards/FullWaterCard.png";
 import NewHand from "../assets/cards/NewHand.png";
 import Pesticide from "../assets/cards/Pesticide.png";
 import RemoveCard from "../assets/cards/RemoveCard.png";
-import "../styles/Cards.css";
+// import "../styles/Cards.css";
 import { useState } from "react";
 import { animatePlayCard, animateRemoveCard } from "../anime/animations";
 import { useDispatch } from "react-redux";
