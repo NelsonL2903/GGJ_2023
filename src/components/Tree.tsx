@@ -9,10 +9,7 @@ const Tree = () => {
     return (
         <div>
             {
-                
-            // <img src={DeadTree} className="h-[100vh] z-10 left-[4vw] absolute bottom-[7vh]"></img>
-            <img src={DeadTree} className="h-[100vh] w-[100vw] z-10 absolute bottom-[0] left-[0vw]"></img>
-
+            <img src={DeadTree} className="h-[100vh] w-[100vw] z-4 absolute bottom-[0] left-[-2vw]"></img>
             }
             
         </div>
