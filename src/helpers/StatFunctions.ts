@@ -41,12 +41,12 @@ function envWaterFunc(turnNumber : number, modifier : number) : number {
   }
 
   //tree resources consumption function
-  function treeWaterConsumptionFunc(treeWater : number) : number {
-    return Math.max(treeWater - waterUsagePerTurn, 0);
+  function treeWaterConsumptionFunc(treeWater : number, modifier : number) : number {
+    return Math.max(treeWater - waterUsagePerTurn - modifier, 0);
   }
 
-  function treeMineralConsumptionFunc(treeMinerals : number) : number {
-    return Math.max(treeMinerals - mineralUsagePerTurn, 0);
+  function treeMineralConsumptionFunc(treeMinerals : number, modifier : number) : number {
+    return Math.max(treeMinerals - mineralUsagePerTurn - modifier, 0);
   }
 
   //updating HP
@@ -55,7 +55,7 @@ function envWaterFunc(turnNumber : number, modifier : number) : number {
     let x : number = currentHP 
                     - ( ((treeNitrogen < mineralInterval)? 1 : 0) + ((treeNitrogen < mineralInterval)? 1 : 0) + ((treeWater < waterInterval)? 1 : 0) ) * HPloss
                     + ( ((treeNitrogen > mineralInterval)? 1 : 0) * ((treeNitrogen > mineralInterval)? 1 : 0) * ((treeWater > waterInterval)? 1 : 0) ) * HPgain
-                    + modifier;
+                    - modifier;
     return Math.max(0 , Math.min(100, x));
   }
   
@@ -67,11 +67,11 @@ function envWaterFunc(turnNumber : number, modifier : number) : number {
   }
 
   //use resources and update HP
-  function resourceAndHPFunc(stats : number[], turnNumber : number, modifier : number) : void {
-    HPFunc(stats[3], stats[1], stats[2], stats[0], turnNumber, modifier);
-    stats[0] = treeWaterConsumptionFunc(stats[0]);
-    stats[1] = treeMineralConsumptionFunc(stats[1]);
-    stats[2] = treeMineralConsumptionFunc(stats[2]);
+  function resourceAndHPFunc(stats : number[], turnNumber : number, HPmodifier : number, waterConsumptionModifier : number, nitrogenConsumptionModifier : number, phosphorusConsumptionModifier : number) : void {
+    HPFunc(stats[3], stats[1], stats[2], stats[0], turnNumber, HPmodifier);
+    stats[0] = treeWaterConsumptionFunc(stats[0], waterConsumptionModifier);
+    stats[1] = treeMineralConsumptionFunc(stats[1], nitrogenConsumptionModifier);
+    stats[2] = treeMineralConsumptionFunc(stats[2], phosphorusConsumptionModifier);
   }
 
   export { envWaterFunc, envMineralsFunc, sunlightFunc, treeWaterAbsorptionFunc, treeMineralAbsorptionFunc, treeWaterConsumptionFunc,

@@ -1,3 +1,5 @@
+import { events } from "./turnOrder";
+
 //slope of linear even probability function
 const eventCoefficient : number = 0.005;
 //maximum probability of an event on a given day
@@ -47,42 +49,7 @@ export interface event {
     nitrogenConsumptionModifier : number;
 }
 
-//creating event objects
-let events: Array<event> = [{name : "nothing", displayText : "", HPDamage: 0, duration: 1, waterModifier: 0, phosphorusModifier : 0, 
-                            nitrogenModifier : 0, waterConsumptionModifier : 0, phosphorusConsumptionModifier : 0, 
-                            nitrogenConsumptionModifier : 0},
 
-                            {name : "storm", displayText : "Your tree has been caught in a lightning storm", HPDamage: 20, duration: 1, waterModifier: 0, phosphorusModifier : 0, 
-                            nitrogenModifier : 0, waterConsumptionModifier : 0, phosphorusConsumptionModifier : 0, 
-                            nitrogenConsumptionModifier : 0},
-
-                            {name : "pests", displayText : "Your tree has been infected by a parasitic fungus. Your tree will require more nutrients for the next 4 turns", HPDamage: 0, duration: 4, waterModifier: 0, phosphorusModifier : 0, 
-                            nitrogenModifier : 0, waterConsumptionModifier : 2, phosphorusConsumptionModifier : 2, 
-                            nitrogenConsumptionModifier : 2},
-
-                            {name : "forest fire", displayText : "Your tree has been caught in a forest fire. Your health and water supply will decrease over the next two turns", HPDamage: 10, duration: 3, waterModifier: -2, phosphorusModifier : 0, 
-                            nitrogenModifier : 0, waterConsumptionModifier : 0, phosphorusConsumptionModifier : 0, 
-                            nitrogenConsumptionModifier : 0},
-
-                            {name : "drought", displayText : "Your tree has been caught in a drought. The water supply will be low the next three turns", HPDamage: 0, duration: 3, waterModifier: -4, phosphorusModifier : 0, 
-                            nitrogenModifier : 0, waterConsumptionModifier : 0, phosphorusConsumptionModifier : 0, 
-                            nitrogenConsumptionModifier : 0},
-
-                            {name : "flood", displayText : "Your tree has been caught in a flood. Water supplies will increase but mineral supplies will be low for the next 3 turns", HPDamage: 0, duration: 3, waterModifier: +5, phosphorusModifier : -4, 
-                            nitrogenModifier : -4, waterConsumptionModifier : 0, phosphorusConsumptionModifier : 0, 
-                            nitrogenConsumptionModifier : 0},
-
-                            {name : "toxins", displayText : "Your tree has been exposed to toxins. It will lose health over the next 6 turns", HPDamage: 5, duration: 6, waterModifier: 0, phosphorusModifier : 0, 
-                            nitrogenModifier : 0, waterConsumptionModifier : 0, phosphorusConsumptionModifier : 0, 
-                            nitrogenConsumptionModifier : 0},
-
-                            {name : "blizzard", displayText : "Your tree has been caught in blizzard.", HPDamage: 15, duration: 1, waterModifier: 0, phosphorusModifier : 0, 
-                            nitrogenModifier : 0, waterConsumptionModifier : 0, phosphorusConsumptionModifier : 0, 
-                            nitrogenConsumptionModifier : 0},
-
-                            {name : "deep freeze", displayText : "Your tree has been caught in a deep freeze. The water supply will be mostly frozen for the next two turns", HPDamage: 0, duration: 2, waterModifier: -10, phosphorusModifier : 0, 
-                            nitrogenModifier : 0, waterConsumptionModifier : 0, phosphorusConsumptionModifier : 0, 
-                            nitrogenConsumptionModifier : 0}]
 
 //update the events list
 function updateEventsListFunc(eventNumber: number, eventsList: number[], eventsListDurations : number[]) : void {
@@ -118,10 +85,10 @@ function totalEventsUpdateFunc(eventsList: number[], totalEvents : event, events
         } 
 }
 
-//total events list
-let eventsList: number[] = [];
-let eventsListDurations : number[] = [];
-//total Event object
-let totalEvents : event;
+//does all of events
+function eventFullFunc(turnNumber : number, eventsList : number[], eventsListDurations : number[], totalEvents : event, events : event[]){
+    updateEventsListFunc(eventNumberFunc, eventsList, eventsListDurations);
+    totalEventsUpdateFunc(eventsList, totalEvents, events)
+}
 
-export { eventProbabilityFunc, eventFunc, seasonFunc, eventNumberFunc, updateEventsListFunc, totalEventsUpdateFunc };
+export { eventProbabilityFunc, eventFunc, seasonFunc, eventNumberFunc, updateEventsListFunc, totalEventsUpdateFunc, eventFullFunc };
