@@ -17,9 +17,9 @@ interface Game {
 const initialState: Game = {
     gameState: 'home',
     life: 100,
-    tWater: 0,
-    tN: 0,
-    tP: 0,
+    tWater: 100,
+    tN: 100,
+    tP: 100,
     aWater: 0,
     aN: 0,
     aP: 0,

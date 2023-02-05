@@ -23,6 +23,6 @@
     "enable": true,
     "include": ["react", "react-dom", "react-router-dom"]
   },
-  "baseUrl": "src",
+  "baseUrl": "./src",
   "@/*": ["./*"],
 }
