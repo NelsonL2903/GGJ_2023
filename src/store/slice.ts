@@ -157,10 +157,10 @@ const gameSlice = createSlice({
       }
     },
     pushEventsList(state, action) {
-      state.eventsList.push[action.payload];
+      state.eventsList.push(action.payload);
     },
     pushEventsListDurations(state, action) {
-      state.eventsListDurations.push[action.payload];
+      state.eventsListDurations.push(action.payload);
     },
     playCard(state, action) {
       state.cards.splice(action.payload, 1);

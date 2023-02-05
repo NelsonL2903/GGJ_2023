@@ -14,16 +14,19 @@ import { animateLightning } from "../anime/lightning";
 import { RootState } from "../store/store";
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 const Weather = () => {
-    const events = useSelector((state: RootState) => state.game.event);
+    const events = useSelector((state: RootState) => state.game.eventsList);
 
     var isRaining = false;
 
     var isSnowing = false;
     var isBlizzarding = false;
     var isLightning = false;
+
+    
 
     if(events.includes(3)){
         isRaining = true;
@@ -69,6 +72,10 @@ const Weather = () => {
         console.log("lightning");
         animateLightning(document.getElementById(`.lightning`)!);
     };
+
+    useEffect(() => {
+        console.log(events)
+    })
 
     return ( //ground and trees on z20
         <div className='z-10'>

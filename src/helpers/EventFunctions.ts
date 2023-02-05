@@ -121,7 +121,7 @@ function eventFullFunc(dispatch: (payload: any) => void, state: Game){
     //determines which event will occur
     function eventNumberFunc() : number {
         const eventNum = Math.random() < Math.min(eventCoefficient * state.turnNumber, maxEventProbability)
-        return (2 * (eventNum? 1 : 0) * (state.season + 1)) - (eventNum? 1 : 0) * ((Math.random() < 0.5)? 1 : 0);
+        return  (2 * (eventNum? 1 : 0) * (state.season + 1)) - (eventNum? 1 : 0) * ((Math.random() < 0.5)? 1 : 0);
     }
 
     //update the events list
@@ -152,6 +152,7 @@ function eventFullFunc(dispatch: (payload: any) => void, state: Game){
                 }
             }
         }
+        console.log("Adding event: ", events[index]?.name, " to events list")
         dispatch(pushEventsList(index));
         console.log(events[index], events[index]?.duration)
         dispatch(pushEventsListDurations(events[index]?.duration));
