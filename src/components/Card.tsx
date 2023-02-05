@@ -1,10 +1,11 @@
-import HalfWaterCard from "../assets/HalfWaterCard.png";
+import HalfWaterCard from "../../public/HalfWaterCard.png";
+import "../styles/Cards.css"
 
 const Card = (props: any) => {
     return (
-        <div className="">
+        <div className={`mx-2 overflow-hidden `}>
             {props.type === "HalfWater" &&
-                <img src={HalfWaterCard} className="h-[100vh] -rotate-[2deg]"></img>}
+                <img src={HalfWaterCard} className="h-48 card"></img>}
         </div>
 
     );

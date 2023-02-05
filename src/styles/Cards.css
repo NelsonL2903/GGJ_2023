@@ -1,0 +1,17 @@
+.card{
+    object-fit: cover;
+    object-position: -27% -3rem;
+    transform:scale(3.0);
+    -ms-transform:scale(3.0); /* IE 9 */
+    -moz-transform:scale(3.0); /* Firefox */
+    -webkit-transform:scale(3.0); /* Safari and Chrome */
+    -o-transform:scale(3.0); 
+}
+
+.card:hover{
+    transform:scale(3.1);
+    -ms-transform:scale(3.1); /* IE 9 */
+    -moz-transform:scale(3.1); /* Firefox */
+    -webkit-transform:scale(3.1); /* Safari and Chrome */
+    -o-transform:scale(3.1); 
+}
