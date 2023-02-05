@@ -29,7 +29,7 @@ const initialState: Game = {
     aP: 0,
     turnNumber: 0,
     dayCycle: true,
-    event: [0],
+    event: [],
     day: 0,
     season: 1,
     cards: [1, 2, 3, 4],
