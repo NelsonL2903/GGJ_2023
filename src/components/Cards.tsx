@@ -12,8 +12,8 @@ const Cards = () => {
     }, [cards]);
 
     return (
-        <div className="absolute bottom-8 left-4 w-full">
-            <div className='flex text-white relative w-[36vw] h-52 z-10'>
+        <div className="absolute bottom-8 left-4 w-full ">
+            <div className='flex text-white relative w-[36vw] h-52 z-50'>
                 {cards.map((card, index) => (
                     <Card key={index} index={index} cardNumber={card} />
                 ))}
