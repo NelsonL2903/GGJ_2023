@@ -19,7 +19,7 @@ function App() {
     <div className="flex">
 
       <div className="bg-black w-1/4 height-[100vh]"></div>
-      <div className="flex-grow-0 w-[900px] relative">
+      <div className="flex-grow-0 w-[900px] relative overflow-hidden ">
         {gameState === "home" &&
           <div>
             <Background >

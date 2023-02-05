@@ -5,7 +5,8 @@ import Stats from '../components/stats/Stats';
 import Ground from '../components/Ground';
 import Tree from "../components/Tree";
 import Cards from '../components/Cards';
-import DayCounter from '../components/DayCounter';
+import DayCounter from '../components/DayCounter'
+import Weather from '../components/Weather';
 import { useEffect } from 'react';
 import { takeTurn } from "../helpers/turnOrder";
 import EndTurnButton from '../components/EndTurnButton';
@@ -24,6 +25,7 @@ const Game = () => {
             <Stats />
             <Ground />
             <Tree />
+            <Weather />
             <EndTurnButton />
             <Cards />
         </div>
