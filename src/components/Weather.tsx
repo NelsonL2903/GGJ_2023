@@ -19,7 +19,7 @@ const Weather = () => {
     var isRaining = false;
 
     var isSnowing = false;
-    var isBlizzarding = true;
+    var isBlizzarding = false;
 
     if(events.includes(3)){
         isRaining = true;
