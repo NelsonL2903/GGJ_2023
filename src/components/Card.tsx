@@ -2,7 +2,7 @@ import HalfWater from "/HalfWaterCard.png";
 import AntidoteCard from "/antidote.png";
 import CompostCard from "/compost.png";
 import FullWater from "/FullWaterCard.png";
-import NewHand from "/NewHand.png";
+import NewHand from "/newhand.png";
 import Pesticide from "/Pesticide.png";
 import RemoveCard from "/RemoveCard.png";
 // import "../styles/Cards.css";
