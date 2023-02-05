@@ -90,10 +90,13 @@ const gameSlice = createSlice({
         setSeason(state, action) {
             state.season = action.payload;
         },
-        
+        playCard(state, action) {
+            state.cards.splice(action.payload, 1);
+        }
+
     }
 });
 
 export const { setGameState, setLife, setTWater, setTN, setTP, setAWater, setAN, setAP,
-    incrementTurnNumber, toggleDayCycle, setEvent, resetGame, incrementDay, setDay, setSeason } = gameSlice.actions;
+    incrementTurnNumber, toggleDayCycle, setEvent, resetGame, incrementDay, setDay, setSeason, playCard } = gameSlice.actions;
 export default gameSlice.reducer;

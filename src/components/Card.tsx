@@ -8,6 +8,7 @@ import RemoveCard from "../assets/cards/RemoveCard.png";
 import "../styles/Cards.css";
 import { useState } from "react";
 import { animatePlayCard } from "../anime/animations";
+import { useDispatch } from "react-redux";
 
 interface Props {
     cardNumber: number;
@@ -16,7 +17,8 @@ interface Props {
 
 const Card = (props: Props) => {
     const [image, setImage] = useState<any>(null);
-
+    const dispatch = useDispatch();
+    
     const CardImages = {
         "0": { image: CompostCard, name: "Full N20" },
         "1": { image: CompostCard, name: "Full N20" },
@@ -39,8 +41,8 @@ const Card = (props: Props) => {
     };
 
     const playCard = () => {
-        console.log("play card");
-        animatePlayCard(document.getElementById(`.card${props.index}`)!);
+        
+        animatePlayCard(document.getElementById(`.card${props.index}`)!, props.index, dispatch);
     };
 
     return (
@@ -49,7 +51,7 @@ const Card = (props: Props) => {
             <img src={CardImages[props.cardNumber.toString()].image} className="h-48 card">
             </img>
             {/* @ts-ignore */}
-            <p className="text-white absolute bottom-7 left-8 text-small">{CardImages[props.cardNumber.toString()].name}</p>
+            <p className="text-white absolute bottom-16 left-10 text-small">{CardImages[props.cardNumber.toString()].name}</p>
         </div>
 
     );

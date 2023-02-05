@@ -6,7 +6,7 @@ import { setGameState } from "../store/slice";
 const HomeScreen = () => {
   const dispatch = useDispatch();
   return (
-    <div className="h-[100vh] flex flex-col justify-center items-center relative bg-blue-400">
+    <div className="h-[100vh] flex flex-col justify-center items-center relative">
       <h1 className="font-bold text-9xl text-orange-900">Old Oak</h1>
       <div
         className="flex justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-pointer"
