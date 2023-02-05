@@ -11,7 +11,7 @@ interface Game {
     aP: number,
     turnNumber: number,
     dayCycle: boolean,
-    event: string,
+    event: number[],
     day: number;
     // 0 = spring, 1 = summer, 2 = fall, 3 = winter, 4 = dead
     season: number,
