@@ -14,9 +14,6 @@ const Game = () => {
     const game = useSelector((state: RootState) => state.game);
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     console.log(game);
-    // }, [game]);
 
     useEffect(() => {
         console.log("STARTING GAME 🏁");
