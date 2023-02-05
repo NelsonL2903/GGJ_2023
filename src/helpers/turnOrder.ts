@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 //creating event objects
-export let events: Array<event> = [{
+export const events: Array<event> = [{
     name: "nothing", displayText: "", HPDamage: 0, duration: 1, waterModifier: 0, phosphorusModifier: 0,
     nitrogenModifier: 0, waterConsumptionModifier: 0, phosphorusConsumptionModifier: 0,
     nitrogenConsumptionModifier: 0
@@ -114,18 +114,18 @@ let hand: number[];
 export function takeTurn(turnNumber: number, dispatch: any) {
 
     // Determine random event 
-    
     //event
     eventFullFunc(turnNumber, eventsList, eventsListDurations, totalEvents, events);
-    //absorption
-    //absorbFunc(stats, env);
+    //absorption and update environment
+    absorbFunc();
     //draw
     //drawCardFunc(hand);
+    //maybe discard a card
     //play
 
     //resource and hp update
-    // stats = resourceAndHPFunc(stats, turnNumber, totalEvents.HPDamage, totalEvents.waterConsumptionModifier, totalEvents.nitrogenConsumptionModifier, totalEvents.phosphorusConsumptionModifier);
+    resourceAndHPFunc(totalEvents.waterConsumptionModifier, totalEvents.nitrogenConsumptionModifier, totalEvents.phosphorusConsumptionModifier);
 
-    //update environment
+    //end turn
 }
 
