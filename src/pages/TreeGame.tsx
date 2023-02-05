@@ -9,7 +9,9 @@ import Cards from '../components/Cards';
 
 const Game = () => {
     const state = useSelector((state: RootState) => state.game);
-    const dispatch = useDispatch();
+    
+    console.log(state);
+
 
     return (
         <div className='flex-1 flex flex-col justify-center'>
