@@ -14,7 +14,7 @@ import WinterLeaves from "/snow_branches.png";
 import SpringLeaves from "/spring_leaves.png";
 
 import { RootState } from "../store/store";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 
 const Tree = () => {
@@ -45,16 +45,16 @@ const Tree = () => {
 
   return (
     <div>
-      {season[seasonNum].leafSource && (
+      {season[seasonNum]?.leafSource && (
         <img
-          src={season[seasonNum].leafSource!}
+          src={season[seasonNum]?.leafSource!}
           alt="leaf source"
           className="h-[100vh] w-[100vw] z-20 absolute bottom-[0] left-[-2vw]"
         ></img>
       )}
-      {season[seasonNum].groundSource && (
+      {season[seasonNum]?.groundSource && (
         <img
-          src={season[seasonNum].groundSource!}
+          src={season[seasonNum]?.groundSource!}
           alt="ground source"
           className="h-[100vh] w-[100vw] z-20 absolute bottom-[0] left-[0vw]"
         ></img>

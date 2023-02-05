@@ -40,7 +40,7 @@ const initialState: Game = {
   turnNumber: 0,
   dayCycle: true,
   event: [],
-  day: 0,
+  day: 1,
   season: 0,
   cards: [getRandomInt(10), getRandomInt(10), getRandomInt(10), getRandomInt(10)],
   eventsList: [],
@@ -71,13 +71,13 @@ const gameSlice = createSlice({
       }
     },
     setTWater(state, action) {
-      state.tWater = action.payload;
+    //   state.tWater = action.payload;
     },
     setTP(state, action) {
-      state.tP = action.payload;
+    //   state.tP = action.payload;
     },
     setTN(state, action) {
-      state.tN = action.payload;
+    //   state.tN = action.payload;
     },
     addTWater(state, action) {
       state.tWater = state.tWater + action.payload > 18 ? 18 : state.tWater + action.payload;
@@ -102,7 +102,7 @@ const gameSlice = createSlice({
       if (state.turnNumber % 2 === 0) {
         state.day = state.turnNumber / 2 + 1;
       }
-      if (state.day % 10 === 0) {
+      if (state.day % 4 === 0) {
         state.season = (state.day / 4) % 4;
       }
       state.cards = [getRandomInt(10), getRandomInt(10), getRandomInt(10), getRandomInt(10)];
