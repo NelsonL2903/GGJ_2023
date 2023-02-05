@@ -52,7 +52,7 @@ const Weather = () => {
 
     return ( //ground and trees on z20
         <div className='z-10'>
-            <div id={`.rain`} onLoad={rain} className='z-10 h-[200vh] top-[-100vh] absolute overflow-hidden '>
+            <div id={`.rain`} onLoad={rain} className='z-0 h-[200vh] top-[-100vh] absolute overflow-hidden '>
                 {/* @ts-ignore */}
                 {isRaining &&
                     <div>
@@ -62,7 +62,7 @@ const Weather = () => {
                 }    
                 {/* @ts-ignore */}
             </div>
-            <div id={`.snow`} onLoad={snow} className='z-10 h-[200vh] top-[-100vh] absolute overflow-hidden '>
+            <div id={`.snow`} onLoad={snow} className='z-0 h-[200vh] top-[-100vh] absolute overflow-hidden '>
                 {/* @ts-ignore */}
                 {isSnowing &&
                     <div>
@@ -72,7 +72,7 @@ const Weather = () => {
                 }
                 {/* @ts-ignore */}
             </div>
-            <div id={`.blizzard`} onLoad={blizzard} className='z-10 h-[200vh] top-[-100vh] absolute overflow-hidden '>
+            <div id={`.blizzard`} onLoad={blizzard} className='z-0 h-[200vh] top-[-100vh] absolute overflow-hidden '>
                 {/* @ts-ignore */}
                 {isBlizzarding &&
                 <div>
