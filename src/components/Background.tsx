@@ -21,11 +21,11 @@ const Background = (props: any) => {
 
   useEffect(() => {
     const color = turnNumber % 2 === 0 ?  "#426ff5" : '#000';
-    animateBackground(document.getElementById('background')!, color)
+    document.getElementById("background")!.style.backgroundColor = color;
   }, [turnNumber]);
 
   return (
-    <div id="container" className="bg-[#426ff5]">
+    <div id="background" className="bg-[#426ff5]">
       <div className="">
         <PauseMenu />
       </div>

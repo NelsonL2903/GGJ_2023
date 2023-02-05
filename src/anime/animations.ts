@@ -15,7 +15,7 @@ const animatePlayCard = async (
   // Add children
   tl.add({
     targets: el,
-    translateY: -1000,
+    translateY: -30,
   });
 
   setTimeout(() => {
@@ -46,21 +46,22 @@ const animateRemoveCard = async (
 };
 
 const animateSunMoon = (el: HTMLElement) => {
-    anime({
-        targets: el,
-        translateX: 800,
-        duration: 50000,
-    });
+  anime({
+    targets: el,
+    translateX: 1000,
+    duration: 4000,
+    loop: true,
+    easing: "easeInOutSine",
+  });
 };
 
 const animateBackground = (el: HTMLElement, color: string) => {
-    console.log("Chaging Background Color: " + color)
-    anime({
-        
-        targets: el,
-        backgroundColor: 'color',
-        duration: 1000,
-    });
+  console.log("Chaging Background Color: " + color);
+  anime({
+    targets: el,
+    backgroundColor: 'color',
+    duration: 1000,
+  });
 };
 
 export { animatePlayCard, animateSunMoon, animateBackground, animateRemoveCard };

@@ -40,17 +40,20 @@ const Card = (props: Props) => {
     "17": { image: Pesticide, name: "Pesticide" },
   };
 
-  const playCard = () => {
-    animatePlayCard(
-      document.getElementById(`.card${props.index}`)!,
-      props.index,
-      dispatch
-    );
+  const cardSelected = () => {
+    playCard(props.index);
+    removeCard(props.index);
+  };
 
+  const playCard = (index: number) => {
+    animatePlayCard(document.getElementById(`.card${index}`)!, index, dispatch);
+  };
+
+  const removeCard = (index: number) => {
     for (var i = 1; i < 4; ++i) {
       animateRemoveCard(
-        document.getElementById(`.card${(props.index + i) % 4}`)!,
-        (props.index + i) % 4,
+        document.getElementById(`.card${(index + i) % 4}`)!,
+        (index + i) % 4,
         dispatch
       );
     }
@@ -59,7 +62,7 @@ const Card = (props: Props) => {
   return (
     <div
       className={` relative hover:font-bold`}
-      onClick={playCard}
+      onClick={cardSelected}
       id={`.card${props.index}`}
     >
       {/* @ts-ignore */}
