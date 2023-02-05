@@ -7,7 +7,7 @@ import { brown } from '@material-ui/core/colors';
 
 
 const VolumeToggle = (props: any) => {
-    const [play, { stop }] = useSound('', { volume: 0.25 });
+    const [play, { stop }] = useSound('', { volume: 1.00 });
     const [mute, setMute] = useState(false);
 
     const toggleMute = () => {
