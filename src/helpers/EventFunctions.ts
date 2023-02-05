@@ -152,9 +152,7 @@ function eventFullFunc(dispatch: (payload: any) => void, state: Game){
                 }
             }
         }
-        console.log("Adding event: ", events[index]?.name, " to events list")
         dispatch(pushEventsList(index));
-        console.log(events[index], events[index]?.duration)
         dispatch(pushEventsListDurations(events[index]?.duration));
     }
 

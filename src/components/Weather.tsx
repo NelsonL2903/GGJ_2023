@@ -57,25 +57,17 @@ const Weather = () => {
     }
 
     const rain = () => {
-        console.log("raining");
         animateRain(document.getElementById(`.rain`)!);
     };
     const snow = () => {
-        console.log("snowing");
         animateSnow(document.getElementById(`.snow`)!);
     };
     const blizzard = () => {
-        console.log("blizzarding");
         animateBlizzard(document.getElementById(`.blizzard`)!);
     };
     const lightning = () => {
-        console.log("lightning");
         animateLightning(document.getElementById(`.lightning`)!);
     };
-
-    useEffect(() => {
-        console.log(events)
-    })
 
     return ( //ground and trees on z20
         <div className='z-10'>

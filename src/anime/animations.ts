@@ -6,7 +6,6 @@ const animatePlayCard = async (
   cardIndex: number,
   dispatch: any
 ) => {
-  console.log(el);
   const tl = anime.timeline({
     easing: "easeOutExpo",
     duration: 750,
@@ -28,7 +27,6 @@ const animateRemoveCard = async (
   cardIndex: number,
   dispatch: any
 ) => {
-  console.log(el);
   const tl = anime.timeline({
     easing: "easeOutExpo",
     duration: 750,
@@ -56,7 +54,6 @@ const animateSunMoon = (el: HTMLElement) => {
 };
 
 const animateBackground = (el: HTMLElement, color: string) => {
-  console.log("Chaging Background Color: " + color);
   anime({
     targets: el,
     backgroundColor: 'color',
