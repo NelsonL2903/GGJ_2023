@@ -17,8 +17,9 @@ interface Props {
 
 const Card = (props: Props) => {
     const [image, setImage] = useState<any>(null);
+
     const dispatch = useDispatch();
-    
+
     const CardImages = {
         "0": { image: CompostCard, name: "Full N20" },
         "1": { image: CompostCard, name: "Full N20" },
@@ -41,7 +42,7 @@ const Card = (props: Props) => {
     };
 
     const playCard = () => {
-        
+        console.log("play card");
         animatePlayCard(document.getElementById(`.card${props.index}`)!, props.index, dispatch);
     };
 

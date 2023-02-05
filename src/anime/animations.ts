@@ -26,21 +26,14 @@ const animatePlayCard = async (el: HTMLElement, cardIndex: number, dispatch: any
     }, 749);
 };
 
-const animateSunMoon  = (el: HTMLElement, dayCycle: boolean) => {
-    const tl = anime.timeline({
-        easing: 'easeOutExpo',
-        duration: 750
-    });
-
-    // Add children
-    tl.add({
+const animateSunMoon = (el: HTMLElement, path: any) => {
+    anime({
         targets: el,
-        translateY: -10,
-        delay: 100,
-        rotate: 180,
-    })
+        translateX: path('x'),
+        translateY: path('y'),
+        rotate: path('angle'),
+        easing: 'linear',
+    });
+};
 
-}
-
-
-export { animatePlayCard };
+export { animatePlayCard, animateSunMoon };
