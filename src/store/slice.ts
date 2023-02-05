@@ -40,9 +40,9 @@ const initialState: Game = {
   turnNumber: 0,
   dayCycle: true,
   event: [],
-  day: 1,
+  day: 0,
   season: 0,
-  cards: [1, 2, 3, 4],
+  cards: [getRandomInt(10), getRandomInt(10), getRandomInt(10), getRandomInt(10)],
   eventsList: [],
   eventsListDurations: [],
   Wmod: 0,
@@ -62,7 +62,13 @@ const gameSlice = createSlice({
       state.gameState = action.payload;
     },
     setLife(state, action) {
-      state.life = action.payload;
+      if(action.payload <= 100) state.life = action.payload;
+      if(action.payload > 100) state.life = 100;
+      if(action.payload < 0) {
+        state.life = 0;
+        state.event = [2];
+        state.season = 4;
+      }
     },
     setTWater(state, action) {
       state.tWater = action.payload;
@@ -90,6 +96,7 @@ const gameSlice = createSlice({
       if (state.day % 10 === 0) {
         state.season = (state.day / 10) % 4;
       }
+      state.cards = [getRandomInt(10), getRandomInt(10), getRandomInt(10), getRandomInt(10)];
     },
     toggleDayCycle(state) {
       state.dayCycle = !state.dayCycle;
@@ -165,6 +172,10 @@ const gameSlice = createSlice({
     },
   },
 });
+
+function getRandomInt(max: number) {
+  return Math.floor(Math.random() * max);
+}
 
 export const {
   setGameState,
