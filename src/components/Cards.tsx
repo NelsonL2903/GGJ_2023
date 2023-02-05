@@ -8,7 +8,7 @@ const Cards = () => {
     const cards = useSelector((state: RootState) => state.game.cards);
 
     useEffect(() => {
-        
+       console.log(cards) 
     }, [cards]);
 
     return (

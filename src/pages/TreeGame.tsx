@@ -24,15 +24,21 @@ const Game = () => {
     return (
         <div className='flex-1 flex flex-col justify-center'>
             <DayCounter />
-            <Stats />
             <Ground />
             <Tree />
-            <Weather />
-            <EndTurnButton />
-            <SunMoon />
-            <Cards />
-
-            
+            {gameState.season !== 4 ?
+                <>
+                    <Stats />
+                    <Weather />
+                    <EndTurnButton />
+                    <SunMoon />
+                    <Cards />
+                </>
+                :
+                <div className='top-4 justify-center items-center w-full absolute z-20'>
+                    <p className='text-9xl font-bold text-white'>Game Over</p>
+                </div> 
+            }
         </div>
     );
 };

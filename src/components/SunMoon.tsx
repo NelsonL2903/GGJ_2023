@@ -16,16 +16,17 @@ const SunMoon = () => {
 
     useEffect(() => {
         animateMoon();
-        
-    }, [turnNumber]);
+
+    }, []);
 
     return (
-        <div className="absolute top-24 left-0 z-10 ">
+        <div className="absolute top-24 -left-20 z-10 ">
             <div id="sun-moon" onClick={animateMoon}>
                 {
                     turnNumber % 2 === 0 ?
-                    <img src={Moon} className="h-12" /> :
-                    <img src={Sun} className="h-12" />
+                    <img src={Sun} className="h-12" /> :
+                    <img src={Moon} className="h-12" />
+                    
                 }
             </div>
         </div>        
