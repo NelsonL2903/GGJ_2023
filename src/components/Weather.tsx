@@ -1,8 +1,8 @@
-import RainEffect from "../assets/RainEffect.png";
-import RainGround from "../assets/rain_ground.png";
+import RainEffect from "/RainEffect.png";
+import RainGround from "/rain_ground.png";
 
-import SnowEffect from "../assets/SnowEffect.png";
-import LightningEffect from "../assets/Lightning.png"
+import SnowEffect from "/SnowEffect.png";
+import LightningEffect from "/Lightning.png"
 import { animateRain } from "../anime/rain";
 import { animateSnow } from "../anime/snow";
 import { animateBlizzard } from "../anime/blizzard";

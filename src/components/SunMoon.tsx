@@ -1,8 +1,8 @@
 import anime from "animejs";
 import { animateSunMoon, animateBackground } from "../anime/animations";
 import { useEffect } from "react";
-import Sun from "../assets/Sun.png";
-import Moon from "../assets/Moon.png";
+import Sun from "/Sun.png";
+import Moon from "/Moon.png";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 

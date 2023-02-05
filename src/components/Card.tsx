@@ -1,10 +1,10 @@
 import HalfWater from "/HalfWaterCard.png";
-import AntidoteCard from "../assets/cards/antidote.png";
+import AntidoteCard from "/antidote.png";
 import CompostCard from "/compost.png";
-import FullWater from "../assets/cards/FullWaterCard.png";
-import NewHand from "../assets/cards/NewHand.png";
-import Pesticide from "../assets/cards/Pesticide.png";
-import RemoveCard from "../assets/cards/RemoveCard.png";
+import FullWater from "/FullWaterCard.png";
+import NewHand from "/NewHand.png";
+import Pesticide from "/Pesticide.png";
+import RemoveCard from "/RemoveCard.png";
 // import "../styles/Cards.css";
 import { useState } from "react";
 import { animatePlayCard, animateRemoveCard } from "../anime/animations";

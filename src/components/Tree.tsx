@@ -1,17 +1,17 @@
-import DeadTree from "../assets/DeadTree.png";
-import LiveTree from "../assets/tree_base.png";
-import SickTree from "../assets/infected_trunk.png";
+import DeadTree from "/DeadTree.png";
+import LiveTree from "/tree_base.png";
+import SickTree from "/infected_trunk.png";
 
-import Fungus from "../assets/fungus.png";
+import Fungus from "/fungus.png";
 
-import FallGround from "../assets/FallGround.png";
-import WinterGround from "../assets/WinterGround.png";
-import SpringGround from "../assets/SpringGround.png";
+import FallGround from "/FallGround.png";
+import WinterGround from "/WinterGround.png";
+import SpringGround from "/SpringGround.png";
 
-import SummerLeaves from "../assets/summer_leaves.png";
-import FallLeaves from "../assets/fall_leaves.png";
-import WinterLeaves from "../assets/snow_branches.png";
-import SpringLeaves from "../assets/spring_leaves.png";
+import SummerLeaves from "/summer_leaves.png";
+import FallLeaves from "/fall_leaves.png";
+import WinterLeaves from "/snow_branches.png";
+import SpringLeaves from "/spring_leaves.png";
 
 import { RootState } from "../store/store";
 import { useSelector, useDispatch } from "react-redux";

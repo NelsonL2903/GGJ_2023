@@ -1,4 +1,4 @@
-import GroundImg from '../assets/GroundBase.png';
+import GroundImg from '/GroundBase.png';
 
 const Ground = () => {
     return (
