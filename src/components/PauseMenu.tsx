@@ -5,7 +5,7 @@ import { Modal, Box, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import { useDispatch } from "react-redux";
-import { setGameState } from "../store/slice";
+import { setGameState, resetGame, setDay } from "../store/slice";
 
 const PauseMenu = (props: any) => {
   const dispatch = useDispatch();
@@ -23,10 +23,12 @@ const PauseMenu = (props: any) => {
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: 400,
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    p: 4,
+  };
+
+  const toHome = () => {
+    dispatch(resetGame());
+    dispatch(setDay(0));
+    dispatch(setGameState("home"));
   };
 
   return (
@@ -41,11 +43,7 @@ const PauseMenu = (props: any) => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          <CloseIcon
-            onClick={handleClose}
-            className="absolute top-1 right-1"
-          ></CloseIcon>
+        <Box sx={style} style={{ outline: "none" }}>
           <div
             onClick={handleClose}
             className="flex justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-pointer mb-2"
@@ -54,7 +52,7 @@ const PauseMenu = (props: any) => {
             <PlayArrowIcon className="text-4xl" />
           </div>
           <div
-            onClick={() => dispatch(setGameState("home"))}
+            onClick={toHome}
             className="flex justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-pointer mb-2"
           >
             <p className="text-4xl text-green-600">Exit</p>
