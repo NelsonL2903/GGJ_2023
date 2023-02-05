@@ -103,7 +103,7 @@ const gameSlice = createSlice({
         state.day = state.turnNumber / 2 + 1;
       }
       if (state.day % 10 === 0) {
-        state.season = (state.day / 10) % 4;
+        state.season = (state.day / 4) % 4;
       }
       state.cards = [getRandomInt(10), getRandomInt(10), getRandomInt(10), getRandomInt(10)];
     },
