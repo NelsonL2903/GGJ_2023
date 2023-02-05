@@ -60,7 +60,7 @@ const PauseMenu = (props: any) => {
             <p className="text-4xl text-green-600">Exit</p>
             <CloseIcon className="text-4xl" />
           </div>
-          <div className="flex flex-col justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-pointer">
+          <div className="flex flex-col justify-center items-center text-green-600 bg-orange-900 p-4 rounded-lg cursor-default">
             <p className="text-green-600 text-2xl">Created by</p>
             <p className="text-green-600 text-2xl">Ryan Eggens, Nelson Loop,</p>
             <p className="text-green-600 text-2xl">Hayden Parsons,</p>

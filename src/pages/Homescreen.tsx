@@ -15,7 +15,7 @@ const HomeScreen = () => {
         <p className="text-4xl text-green-600">Start</p>
         <PlayArrowIcon className="text-4xl" />
       </div>
-      <div className="flex flex-col justify-center items-center text-orange-900 p-4 rounded-lg cursor-pointer">
+      <div className="flex flex-col justify-center items-center text-orange-900 p-4 rounded-lg cursor-default">
         <p className="text-orange-900 text-3xl">Created by</p>
         <p className="text-orange-900 text-3xl">Ryan Eggens, Nelson Loop,</p>
         <p className="text-orange-900 text-3xl">Hayden Parsons,</p>
