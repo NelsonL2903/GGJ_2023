@@ -82,9 +82,9 @@ const HPFunc = (dispatch: (payload: any) => void, state: Game) => {
 }
 
 const updateEnv = (dispatch: (payload: any) => void, state: Game): void => {
-  dispatch(setAWater(envWaterFunc(state.turnNumber, 1)));
-  dispatch(setAN(envMineralsFunc(state.turnNumber, 1)));
-  dispatch(setAP(envMineralsFunc(state.turnNumber, 1)));
+  dispatch(setAWater(envWaterFunc(state.turnNumber, state.Wmod)));
+  dispatch(setAN(envMineralsFunc(state.turnNumber, state.Nmod)));
+  dispatch(setAP(envMineralsFunc(state.turnNumber, state.Pmod)));
 }
 
 //absorb nutrients. stats array contains in order : water, nitrogen, phosphorus, HP env array contains the same for the environment
@@ -95,17 +95,11 @@ const absorbFunc = (dispatch: (payload: any) => void, state: Game): void => {
 }
 
 //use resources and update HP
-const resourceAndHPFunc = (
-  waterConsumptionModifier: number,
-  nitrogenConsumptionModifier: number,
-  phosphorusConsumptionModifier: number,
-  dispatch: (payload: any) => void, 
-  state: Game
-): void => {
+const resourceAndHPFunc = (dispatch: (payload: any) => void, state: Game): void => {
   HPFunc(dispatch, state);
-  dispatch(setTWater(treeWaterConsumptionFunc(state.tWater, waterConsumptionModifier)));
-  dispatch(setTN(treeMineralConsumptionFunc(state.tN, nitrogenConsumptionModifier)));
-  dispatch(setTP(treeMineralConsumptionFunc(state.tP, phosphorusConsumptionModifier)));
+  dispatch(setTWater(treeWaterConsumptionFunc(state.tWater, state.WCmod)));
+  dispatch(setTN(treeMineralConsumptionFunc(state.tN, state.NCmod)));
+  dispatch(setTP(treeMineralConsumptionFunc(state.tP, state.PCmod)));
 }
 
 export { updateEnv, absorbFunc, resourceAndHPFunc };

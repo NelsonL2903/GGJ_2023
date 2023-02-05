@@ -3,7 +3,6 @@ import { drawCardFunc } from "./cards";
 import { event, eventFullFunc } from "./EventFunctions";
 import { absorbFunc, resourceAndHPFunc } from "./StatFunctions";
 
-
 //creating event objects
 export const events: Array<event> = [{
     name: "nothing", displayText: "", HPDamage: 0, duration: 1, waterModifier: 0, phosphorusModifier: 0,
@@ -95,36 +94,16 @@ export const events: Array<event> = [{
     nitrogenConsumptionModifier: 0
 }]
 
-//total events list
-let eventsList: number[] = [];
-let eventsListDurations: number[] = [];
-//total Event object
-let totalEvents: event;
-//stats and environment
-let stats: number[];
-let env: number[];
-let hand: number[];
-
 const takeTurn = (dispatch: (payload: any) => void, state: Game ) => {
-    // Determine random event 
-    //event
-    // eventFullFunc(turnNumber, eventsList, eventsListDurations, totalEvents, events);
-    //absorption and update environment
+    eventFullFunc(dispatch, state);
     absorbFunc(dispatch, state);
     //draw
     //drawCardFunc(hand);
     //maybe discard a card
     //play
 
-    //resource and hp update
-    // resourceAndHPFunc(totalEvents.waterConsumptionModifier, totalEvents.nitrogenConsumptionModifier, totalEvents.phosphorusConsumptionModifier);
-
-    //end turn
+    resourceAndHPFunc(dispatch, state);
 }
 
-const endTurn = () => {
-    
-}
-
-export { takeTurn, endTurn }
+export { takeTurn }
 
