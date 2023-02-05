@@ -6,9 +6,14 @@ import { useSelector } from "react-redux";
 import { RootState } from "./store/store";
 import StatBox from "./components/stats/statBox";
 import VolumeToggle from "./components/VolumeToggle";
+import { useEffect } from "react";
 
 function App() {
   const gameState = useSelector((state: RootState) => state.game.gameState);
+
+  useEffect(() => {
+    document.body.classList.add("no-scroll")
+  }, []);
 
   return (
     <div className="flex">

@@ -1,9 +1,23 @@
 import anime from 'animejs';
 
-const playCard = (el: HTMLElement) => {
-    anime({
+const animatePlayCard = (el: HTMLElement) => {
+    var tl = anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 750
+      });
+      
+      // Add children
+      tl
+      .add({
         targets: el,
-        translateX: 250,
-        delay: 1000
-    });
+        translateY: -10,
+        delay: 100,
+      })
+      .add({
+        targets: el,
+        translateY: 600,
+        
+      })
 };
+
+export { animatePlayCard };

@@ -7,6 +7,7 @@ import Pesticide from "../assets/cards/Pesticide.png";
 import RemoveCard from "../assets/cards/RemoveCard.png";
 import "../styles/Cards.css";
 import { useState } from "react";
+import { animatePlayCard } from "../anime/animations";
 
 interface Props {
     cardNumber: number;
@@ -39,7 +40,7 @@ const Card = (props: Props) => {
 
     const playCard = () => {
         console.log("play card");
-        
+        animatePlayCard(document.getElementById(`.card${props.index}`)!);
     };
 
     return (

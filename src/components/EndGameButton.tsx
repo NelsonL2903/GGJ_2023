@@ -1,12 +1,12 @@
-
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
 const EndGameButton = () => {
 
     return (
-        <div className='absolute bottom-0 right-0 '>
-            <button className=" hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                <p>
-                    End Game
+        <div className='absolute bottom-64 right-8 '>
+            <button className="p-2 cursor-pointer">
+                <p className="text-white text-lg">
+                    End Turn <DoubleArrowIcon />
                 </p>
             </button>
         </div>
